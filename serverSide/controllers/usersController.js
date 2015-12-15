@@ -36,7 +36,7 @@ function create(req, res){
 }
 
 function show(req, res){
-	//get and show a single user 
+	//get and show a single user
 	User.findById(req.params.user_id, function(err, user){
 		if(err) res.send(err)
 		res.json(user)
@@ -48,15 +48,15 @@ function update(req, res){
 	User.findById(req.params.user_id, function(err, user){
 		if(err) res.send(err)
 
-		if(req.body.name) user.name = req.body.name
-		if(req.body.email) user.email = req.body.email
-		if(req.body.password) user.password = req.body.password
+		if(req.body.name) 			user.name 			= req.body.name
+		if(req.body.email) 			user.email 			= req.body.email
+		if(req.body.password) 	user.password 	= req.body.password
 		if(req.body.experience) user.experience = req.body.experience
-		if(req.body.gyms) user.gyms = req.body.gyms
-		if(req.body.points) user.points = req.body.points
-		if(req.body.level) user.level = req.body.level
-		if(req.body.followers) user.followers = req.body.followers
-		if(req.body.following) user.following = req.body.following
+		if(req.body.gyms) 			user.gyms 			= req.body.gyms
+		if(req.body.points) 		user.points 		= req.body.points
+		if(req.body.level) 			user.level 			= req.body.level
+		if(req.body.followers) 	user.followers 	= req.body.followers
+		if(req.body.following) 	user.following 	= req.body.following
 
 		user.save(function(err){
 			if(err) res.send(err)
