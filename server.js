@@ -12,7 +12,7 @@ var apiRouter  = require('./serverSide/apiRoutes/userRoutes')
 //Connect to the database (using mongoose)
 mongoose.connect(config.database)
 
-app.use(express.static(path.join(__dirname, 'clientSide')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 //Configuration our app to handle CORS requests/errors
 app.use(function(req,res,next){
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 // Redirects invalid URLS to Index.html
 app.get('/', function (req,res){
-  res.sendFile(path.join(__dirname+ 'index.html'))
+  res.sendFile(path.join(__dirname+ '/public/index.html'))
 })
 
 app.get('/', function(req,res){
@@ -39,7 +39,7 @@ app.get('/', function(req,res){
 	res.render('index')
 })
 
-app.use('/api', apiRouter) 
+app.use('/api', apiRouter)
 //Start the Server
 // Server Listen crap
 app.listen(config.port, function(){
