@@ -1,7 +1,7 @@
 angular
 	.module('topOutApp', ['ui.router'])
-	.config(interceptor)
-	.config(MainRouter)
+	.config([interceptor])
+	.config(['$stateProvider','$urlRouterProvider', MainRouter])
 
 function interceptor($httpProvider){
 	$httpProvider.interceptors.push('authInterceptorFactory')
