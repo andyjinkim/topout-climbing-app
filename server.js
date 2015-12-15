@@ -38,9 +38,9 @@ app.get('/', function(req,res){
 	console.log('getting index?')
 	res.render('index')
 })
-
-app.use('/api', apiRouter)
 //Start the Server
+app.use('/api', apiRouter)
+
 // Server Listen crap
 app.listen(config.port, function(){
 	console.log('it is up and running on port 3000')
