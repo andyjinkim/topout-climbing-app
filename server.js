@@ -6,7 +6,7 @@ var logger     = require('morgan')
 var mongoose   = require('mongoose')
 var config     = require('./config')
 var path       = require('path')
-var apiRouter  = require('./routes/api.js')
+var apiRouter  = require('./apiRoutes/userRoutes')
 
 
 //Connect to the database (using mongoose)
