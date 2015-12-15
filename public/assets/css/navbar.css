@@ -1,0 +1,53 @@
+
+How to create a header menu under navbar menu which is fixed, like VTiger Dashboard :
+
+Here is mine :
+
+$(document).ready(function(){
+    $('.ui.dropdown').dropdown();
+});
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'nunito', sans-serif;
+	margin-bottom: 60px;
+}
+.ui.menu .item{
+  font-size: 1.5rem;
+}
+
+
+.ui.grid.main{
+	margin-top: 70px;
+}
+
+.padding-reset{
+	padding: 0px !important;
+}
+
+.ui.message{
+	padding: 40px !important;
+}
+
+@media (max-width: 767px) {
+  	.ui.grid.main{
+  		margin-top: 70px;
+	}
+	.ui.vertical.menu.navbar{
+		margin-top: 0px !important;
+	}
+}
+
+.ui.vertical.menu{
+	margin-top: -15px !important;
+	width: 100%;
+	display: none;
+}
+
+.ui.page.grid{
+	padding-left: 2%;
+	padding-right: 2%;
+}

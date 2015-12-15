@@ -9,17 +9,18 @@ angular.module('topOutRouter', ['ui.router'])
 // 	$httpProvider.interceptors.push('authInterceptorFactory')
 // }
 
+
 function MainRouter($stateProvider, $urlRouterProvider){
 
 	$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: '../templates/index.html',
+			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
 		.state('loggedOut', {
 			url: '/loggedOut',
-			templateUrl: '../templates/index.html',
+			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
 		.state('signup', {
