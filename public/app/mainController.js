@@ -1,4 +1,4 @@
-angular.module('authApp')
+angular.module('mainCtrl', [])
 .controller('MainController', MainController)
 
 MainController.$inject = ['$state', 'authFactory', '$rootScope']
@@ -18,7 +18,7 @@ function MainController($state, authFactory, $rootScope){
 		vm.loggedIn = authFactory.isLoggedIn()
 		vm.getUser()
 		vm.error = null
-	});	
+	});
 
 	function logout(){
 		$state.go('loggedOut')

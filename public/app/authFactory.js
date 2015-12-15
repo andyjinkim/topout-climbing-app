@@ -1,6 +1,9 @@
 //authTokenFactory for getting token and setting it to "token" in local storage
-angular.module('topOutApp')
+angular.module('authFactory', [])
 	.factory('authTokenFactory', authTokenFactory)
+	.factory('authInterceptorFactory', authInterceptorFactory)
+	.factory('authFactory', authFactory)
+
 authTokenFactory.$inject = ['$window']
 function authTokenFactory($window){
 
@@ -21,8 +24,6 @@ function authTokenFactory($window){
 }
 
 //authInterceptorFactory for setting the token to every single request and redirect if no token
-angular.module('topOutApp')
-	.factory('authInterceptorFactory', authInterceptorFactory)
 authInterceptorFactory.$inject = ['$q', '$location', 'authTokenFactory']
 function authInterceptorFactory($q, $location, authTokenFactory){
 
@@ -47,8 +48,6 @@ function authInterceptorFactory($q, $location, authTokenFactory){
 }
 
 //authFactory for http requests to the api
-angular.module('topOutApp')
-.factory('authFactory', authFactory)
 authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
 
