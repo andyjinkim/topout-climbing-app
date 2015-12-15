@@ -20,7 +20,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
 		})
 		.state('loggedOut', {
 			url: '/loggedOut',
-			templateUrl: '../templates/index.html',
+			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
 		.state('signup', {
