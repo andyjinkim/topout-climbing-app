@@ -4,15 +4,15 @@ var app        = express()
 var bodyParser = require('body-parser')
 var logger     = require('morgan')
 var mongoose   = require('mongoose')
-var config     = require('./serverSide/config')
+var config     = require('./config')
 var path       = require('path')
-var apiRouter  = require('./serverSide/apiRoutes/userRoutes')
+var apiRouter  = require('./apiRoutes/userRoutes')
 
 
 //Connect to the database (using mongoose)
 mongoose.connect(config.database)
 
-app.use(express.static(path.join(__dirname, 'clientSide')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 //Configuration our app to handle CORS requests/errors
 app.use(function(req,res,next){
@@ -31,15 +31,13 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 // Redirects invalid URLS to Index.html
 app.get('/', function (req,res){
-  res.sendFile(path.join(__dirname+ 'index.html'))
+  res.sendFile(path.join(__dirname+ '/views/index.html'))
 })
 
 app.get('/', function(req,res){
 	console.log('getting index?')
 	res.render('index')
 })
-
-app.use('/api', apiRouter) 
 //Start the Server
 // Server Listen crap
 app.listen(config.port, function(){

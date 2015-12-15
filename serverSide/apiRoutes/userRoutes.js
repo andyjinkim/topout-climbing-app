@@ -4,6 +4,7 @@ var mongoose    = require('mongoose')
 var User        = require('../models/User')
 var jwt         = require('jsonwebtoken')
 var	superSecret = 'project4'
+var usersController = require('../controllers/usersController')
 
 apiRouter.get('/', function(req,res){
 	res.json({message: "Api routes are working."})
