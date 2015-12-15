@@ -47,6 +47,7 @@ function MainController($state, authFactory, $rootScope){
 		authFactory.login(vm.user.email, vm.user.password)
 		.then(function(response){
 			if(response.data.success){
+				console.log(response.data)
 				//upon successful login redirect user to user-home page
 				$state.go("user-home")
 			} else {
