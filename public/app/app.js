@@ -12,11 +12,8 @@ function interceptor($httpProvider){
   var directive = {
     restrict: 'EA',
     templateUrl: 'templates/nav-bar.html',
-		controller: 'MainController as mainCtrl'
+    controller: 'MainController as mainCtrl'
   }
   return directive
 }
 
-function interceptor($httpProvider){
-	$httpProvider.interceptors.push('authInterceptorFactory')
-}

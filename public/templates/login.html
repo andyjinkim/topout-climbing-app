@@ -9,10 +9,10 @@
     <h1>User Login</h1>
     <form ng-submit="mainCtrl.login()">
         <div class="form-group">
-            <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
+            <input placeholder="Email" type="text" class="form-control seedUserEmail" ng-model="mainCtrl.user.email">
         </div>
         <div class="form-group">
-            <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.user.password">
+            <input placeholder="Password" type="password" class="form-control seedUserPassword" ng-model="mainCtrl.user.password">
         </div>
         <button type="submit" class="btn btn-block btn-primary">
             <span>Login</span>

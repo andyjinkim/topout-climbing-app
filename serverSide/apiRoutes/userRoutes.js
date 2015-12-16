@@ -35,11 +35,11 @@ apiRouter.post('/sample', function(req, res) {
 // route to authenticate a user
 apiRouter.route('/authenticate')
 	.post(function(req, res){
-	console.log('trying to generate a JWT')
+	console.log('trying to generate a JWT', req.body )
 	//find the user in db
 	User.findOne({
 		email: req.body.email
-	}).select('name email password').exec(function(err, user){
+	}).exec(function(err, user){
 		if(err) throw err
 		if(!user){
 			res.json({success: false, message: "auth failed, user not valid"})
@@ -50,6 +50,7 @@ apiRouter.route('/authenticate')
 				res.json({success: false, message: "Auth failed, invalid password"})
 			} else {
 				// password is good!
+				// var user  = user
 				var token = jwt.sign({
 					name: user.name,
 					email: user.email
@@ -57,7 +58,12 @@ apiRouter.route('/authenticate')
 					expiresInMinutes: 1440
 				})
 				// grant token
-				res.json({ success: true, message: "enjoy your token!", token: token})
+				res.json({ 
+					success: true, 
+					message: "enjoy your token!", 
+					token: token, 
+					user : user 
+				})
 			}
 		}
 	})
@@ -98,7 +104,8 @@ apiRouter.route('/users')
 //get current user route
 apiRouter.route('/me')
 	.get(function(req, res){
-		res.send(req.decoded)
+		console.log(res)
+		res.json(req.decoded)
 	})
 
 //update or delete current user route
