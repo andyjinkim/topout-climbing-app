@@ -39,6 +39,7 @@ function MainController($state, authFactory, $rootScope){
 				console.log(vm.user)
 				vm.login()
 			} else {
+				console.log('sign up did not work')
 				vm.error = response.data.message
 			}
 		})
@@ -49,6 +50,7 @@ function MainController($state, authFactory, $rootScope){
 		.then(function(response){
 			console.log(response.data)
 			if(response.data.success){
+				console.log(response.data)
 				//upon successful login redirect user to user-home page
 				$state.go("user-home")
 			} else {

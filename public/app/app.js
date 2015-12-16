@@ -2,6 +2,12 @@ angular.module('topOutApp', ['topOutRouter', 'mainCtrl', 'authFactory',])
 .config(interceptor)
 .directive('navbar', navbar)
 
+
+
+function interceptor($httpProvider){
+	$httpProvider.interceptors.push('authInterceptorFactory')
+}
+
   function navbar(){
   var directive = {
     restrict: 'EA',

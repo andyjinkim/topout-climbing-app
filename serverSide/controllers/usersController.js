@@ -10,6 +10,7 @@ function index(req, res){
 
 function create(req, res){
 	// create a user
+	console.log(req)
 	console.log("Creating a user")
 	var user = new User()
 
@@ -28,6 +29,7 @@ function create(req, res){
 			if(err.code == 11000){
 				return res.json({success: false, message: "username already exists" })
 			} else {
+				console.log('we made it to here!')
 				res.send(err)
 			}
 		}
