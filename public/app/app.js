@@ -11,7 +11,8 @@ function interceptor($httpProvider){
   function navbar(){
   var directive = {
     restrict: 'EA',
-    templateUrl: 'templates/nav-bar.html'
+    templateUrl: 'templates/nav-bar.html',
+		controller: 'MainController as mainCtrl'
   }
   return directive
 }
