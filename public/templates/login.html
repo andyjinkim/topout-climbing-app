@@ -1,43 +1,110 @@
+ <link rel="stylesheet" type="text/css" href="../assets/css/login.css">
+ <script src="../assets/js/login.js"></script>
 
-<!-- Semantic for tabs -->
-<div class="ui top attached tabular menu" style="margin-top:75px">
- <a class="item active" data-tab="first">User Log In!</a>
- <a class="item" data-tab="second">Gym Log In!</a>
-</div>
-<!-- data under login tab -->
-<div class="ui bottom attached tab segment active" data-tab="first">
-    <h1>User Login</h1>
-    <form ng-submit="mainCtrl.login()">
-        <div class="form-group">
-            <input placeholder="Email" type="text" class="form-control seedUserEmail" ng-model="mainCtrl.user.email">
-        </div>
-        <div class="form-group">
-            <input placeholder="Password" type="password" class="form-control seedUserPassword" ng-model="mainCtrl.user.password">
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">
-            <span>Login</span>
-        </button>
-    </form>
-</div>
-<!-- data under sign up tab -->
-<div class="ui bottom attached tab segment" data-tab="second">
-    <h1>Gym Login!</h1>
-    <form ng-submit="mainCtrl.login()">
-        <div class="form-group">
-            <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
-        </div>
-        <div class="form-group">
-            <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.user.password">
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">
-            <span>Login</span>
-        </button>
-    </form>
-
-</div>
-
-<!-- script for activating tabs on click -->
-<script>
-$('.menu .item')
+ <script>
+ $('.menu .item')
  .tab()
-</script>
+ </script>
+
+
+
+<!-- ///////////////// Segment to switch from User and Gym Login      //////////////////////////-->
+
+
+<div class="logincontainer">
+<div class="ui raised segment signin">
+  <div class="ui top attached tabular menu" style="margin-top:75px">
+   <a class="item active" data-tab="first">User Log In!</a>
+   <a class="item" data-tab="second">Gym Log In!</a>
+   </div>
+
+   <!-- ////////////First form for the user login ////////////////////// -->
+   <div class="ui bottom attached tab segment active" data-tab="first">
+    <form ng-submit="mainCtrl.login()">
+        <div class="ui two column grid basic segment">
+          <div class="column">
+            <div class="ui blue stacked segment">
+                <!-- form here -->
+                <div class="ui form">
+                  <div class="field">
+                    <label> Email </label>
+                    <div class="ui left labeled icon input">
+                      <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
+                      <i class="user icon"></i>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label> Password </label>
+                    <div class="ui left labeled icon input">
+                      <input placeholder="Password" type="password" class="form-control seedUserPassword" ng-model="mainCtrl.user.password">
+                      <i class="lock icon"></i>
+                    </div>
+                  </div>
+                  <div class="inline field">
+                    <div class="ui checkbox">
+                      <input id="remember" type="checkbox">
+                      <label for="remember"> Remember me </label>
+                    </div>
+                  </div>
+                  <button type="submit" class="ui red submit button">
+                      <span>Login</span>
+                  </button>
+                </div>
+            </div>
+          </div>
+          <div class="ui vertical divider"> OR </div>
+          <div class="center aligned column">
+            <!-- Facebook button here -->
+            <h4 class="ui header"> Sign in with: </h4>
+            <div class="ui facebook button">
+              <i class="facebook icon"></i>
+              Facebook
+            </div>
+            <div class="ui divider"></div>
+            <div class="text"> Not a member? </div>
+            <a href="/#/signup"><button type="submit" class="ui blue submit button derecha">
+                 <span>Sign Up</span>
+              </button></a>
+              </div>
+           </button></a>
+          </div>
+        </div>
+    </form>
+
+<!-- //////////////////// Second Form for Gym LOGIN ////////////////////////////////// -->
+<div class="ui bottom attached tab segment" data-tab="second">
+  <form ng-submit="mainCtrl.login()">
+      <div class="ui one column grid basic segment">
+        <div class="column">
+          <div class="ui blue stacked segment">
+              <!-- form here -->
+              <div class="ui form">
+                <div class="field">
+                  <label> Email </label>
+                  <div class="ui left labeled icon input">
+                    <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
+                    <i class="user icon"></i>
+                  </div>
+                </div>
+                <div class="field">
+                  <label> Password </label>
+                  <div class="ui left labeled icon input">
+                    <input placeholder="Password" type="password" class="form-control seedUserPassword" ng-model="mainCtrl.user.password">
+                    <i class="lock icon"></i>
+                  </div>
+                </div>
+                <button type="submit" class="ui red submit button">
+                    <span>Login</span>
+                </button>
+                <a href="/#/signup"><button type="submit" class="ui blue submit button derecha">
+                     <span>SignUp</span>
+                  </button></a>
+              </div>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
+</div>
+</div>
+<!-- script for activating tabs on click -->
