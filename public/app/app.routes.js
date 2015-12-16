@@ -1,12 +1,6 @@
 angular.module('topOutRouter', ['ui.router'])
-  // .config([interceptor])
   .config(['$stateProvider', '$urlRouterProvider', MainRouter])
-
-// add navbar directive later
-
-
-
-
+  .run(['$state', function ($state) {}])
 function MainRouter($stateProvider, $urlRouterProvider){
 
 	$stateProvider
@@ -15,7 +9,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
-		.state('loggedOut', {
+		.state('loggedout', {
 			url: '/logout',
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'

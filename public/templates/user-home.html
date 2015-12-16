@@ -1,4 +1,7 @@
-<h1 style="margin-top: 75px;">User object: {{mainCtrl.user}}</h1>
+<h1 style="margin-top: 75px;">Name: {{mainCtrl.user.name}}</h1>
+<h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
+<h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms[0]}}</h1>
 
-<button ng-click="mainCtrl.getUser()">Get users</button>
+
+<button ng-click="mainCtrl.getUser()">Get user object</button>
 
