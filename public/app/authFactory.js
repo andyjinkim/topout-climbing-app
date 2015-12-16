@@ -64,7 +64,7 @@ function authFactory($http, $q, authTokenFactory){
 		// userData = JSON.parse( userData ) 
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
-			console.log(user_id)
+			// console.log(user_id)
 			// console.log( '/api/users/'+ user_id)
 			return $http.get('/api/users/' + user_id)
 		} else {
