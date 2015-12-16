@@ -19,8 +19,8 @@ function authFactory($http, $q, authTokenFactory){
 			email: email,
 			password: password
 		}).then(function(response){
-			authTokenFactory.setToken(response.data.token)
-			localStorage.setItem('user', JSON.stringify( response.data.user ) )
+			authTokenFactory.setToken(response.data.token,response.data.user)
+			// localStorage.setItem('userData',response.data.user)
 			console.log( response.data )
 			return response
 		})
@@ -44,6 +44,7 @@ function authFactory($http, $q, authTokenFactory){
 	authFactory.logout = function(){
 		console.log('logout hitting factory')
 		localStorage.removeItem('token')
+		localStorage.removeItem('userData')
 	}
 
 	// check if a user is logged in
@@ -57,11 +58,11 @@ function authFactory($http, $q, authTokenFactory){
 
 	// get that user's info
 	authFactory.getUser = function(){
-		var userObj = localStorage.getItem('user')
-		userObj = JSON.parse( userObj ) 
+		var userData = localStorage.getItem('userData')
+		userData = JSON.parse( userData ) 
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
-			return $http.get('/api/users/' + userObj._id )
+			return $http.get('/api/users/' + userData._id )
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
@@ -79,11 +80,13 @@ function authTokenFactory($window){
 		return $window.localStorage.getItem('token')
 	}
 	// set the token
-	authTokenFactory.setToken = function( token ){
+	authTokenFactory.setToken = function( token, userData ){
 		if(token){
 			$window.localStorage.setItem('token', token)
+			$window.localStorage.setItem('userData', userData)
 		} else {
 			$window.localStorage.removeItem( 'token' )
+			$window.localStorage.removeItem( 'userData' )
 		}
 	}
 	return authTokenFactory
