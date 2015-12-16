@@ -42,6 +42,7 @@ function show(req, res){
 	//get and show a single user
 	User.findById(req.params.user_id, function(err, user){
 		if(err) res.send(err)
+		console.log( user )
 		res.json(user)
 	})
 }
@@ -54,8 +55,8 @@ function update(req, res){
 		if (req.body.name) {
 			user.name = req.body.name			
 		} 	
-		if(req.body.email) 			user.email 			= req.body.email
-		if(req.body.password) 	user.password 	= req.body.password
+		if(req.body.email) user.email = req.body.email
+		if(req.body.password) user.password 	= req.body.password
 		if(req.body.experience) user.experience = req.body.experience
 		if(req.body.gyms) 			user.gyms 			= req.body.gyms
 		if(req.body.points) 		user.points 		= req.body.points

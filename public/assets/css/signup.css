@@ -1,0 +1,39 @@
+body, .ui.vertical.divider {
+  color: #696969;
+}
+
+.ui.vertical.divider {
+  margin: 0 4px;
+}
+
+.ui.blue.submit.button.derecha{
+
+  float: right;
+}
+
+.text-signup{
+
+  float: right;
+}
+
+.ui.raised.segment {
+  background-color: #2185D0;
+  width: 600px;
+  margin-top: 0;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+}
+
+.footer {
+  text-align: right;
+}
+
+.text {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: #1E90FF;
+}
