@@ -48,6 +48,7 @@ function MainController($state, authFactory, $rootScope){
 	function login(){
 		authFactory.login(vm.user.email, vm.user.password)
 		.then(function(response){
+			console.log(response.data)
 			if(response.data.success){
 				console.log(response.data)
 				//upon successful login redirect user to user-home page

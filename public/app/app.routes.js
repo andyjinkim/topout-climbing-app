@@ -4,10 +4,7 @@ angular.module('topOutRouter', ['ui.router'])
 
 // add navbar directive later
 
-// interceptor
-// function interceptor($httpProvider){
-// 	$httpProvider.interceptors.push('authInterceptorFactory')
-// }
+
 
 
 function MainRouter($stateProvider, $urlRouterProvider){
