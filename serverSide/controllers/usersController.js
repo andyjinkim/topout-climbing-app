@@ -42,6 +42,7 @@ function show(req, res){
 	//get and show a single user
 	User.findById(req.params.user_id, function(err, user){
 		if(err) res.send(err)
+		console.log( user )
 		res.json(user)
 	})
 }

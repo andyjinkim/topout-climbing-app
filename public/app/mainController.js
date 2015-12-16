@@ -28,7 +28,7 @@ function MainController($state, authFactory, $rootScope){
 	}
 
 	function getUser(){
-		authFactory.getUser()
+		authFactory.getUser() //$http.get('/api/me')
 		.then(function(response){
 			vm.user = response.data
 		})
