@@ -42,7 +42,7 @@ apiRouter.route('/authenticate')
 	}).exec(function(err, user){
 		if(err) throw err
 		if(!user){
-			res.json({success: false, message: "auth failed, user not valid"})
+			res.json({success: false, message: "Auth failed, user not valid"})
 		} else if(user){
 			// check passwords
 			var validPassword = user.comparePassword(req.body.password)
@@ -58,11 +58,11 @@ apiRouter.route('/authenticate')
 					expiresInMinutes: 1440
 				})
 				// grant token
-				res.json({ 
-					success: true, 
-					message: "enjoy your token!", 
-					token: token, 
-					user : user 
+				res.json({
+					success: true,
+					message: "enjoy your token!",
+					token: token,
+					user : user
 				})
 			}
 		}

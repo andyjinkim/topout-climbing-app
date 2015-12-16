@@ -44,6 +44,21 @@ function authFactory($http, $q, authTokenFactory){
 		})
 	}
 
+	authFactory.updateUser = function(name,email,password,experience,gyms){
+		console.log('SOMEHOW BUT HOW');
+		if(authTokenFactory.getToken()){
+				return $http.put('/api/users/' + userObj._id, {
+				name: name,
+				email: email,
+				password: password,
+				experience: experience,
+				gyms: gyms
+			})
+		} else {
+			return $q.reject({message: 'User has no token'})
+		}
+	}
+
 	// handle logout
 	authFactory.logout = function(){
 		console.log('logout hitting factory')
@@ -63,7 +78,7 @@ function authFactory($http, $q, authTokenFactory){
 	// get that user's info
 	authFactory.getUser = function(){
 		// var userData = localStorage.getItem('userData')
-		// userData = JSON.parse( userData ) 
+		// userData = JSON.parse( userData )
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
 			// console.log(user_id)
@@ -73,7 +88,6 @@ function authFactory($http, $q, authTokenFactory){
 			return $q.reject({message: 'User has no token'})
 		}
 	}
-
 	return authFactory
 }
 
