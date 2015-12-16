@@ -51,7 +51,9 @@ function update(req, res){
 	User.findById(req.params.user_id, function(err, user){
 		if(err) res.send(err)
 
-		if(req.body.name) 			user.name 			= req.body.name
+		if (req.body.name) {
+			user.name = req.body.name			
+		} 	
 		if(req.body.email) 			user.email 			= req.body.email
 		if(req.body.password) 	user.password 	= req.body.password
 		if(req.body.experience) user.experience = req.body.experience

@@ -4,12 +4,12 @@ angular.module('authFactory', [])
 	.factory('authInterceptorFactory', authInterceptorFactory)
 	.factory('authFactory', authFactory)
 
-
 //authFactory for http requests to the api
 authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
 
 	var authFactory = {}
+	var user_id
 
 	authFactory.index = function(){
 		return $http.get('/api/users')
@@ -21,12 +21,15 @@ function authFactory($http, $q, authTokenFactory){
 			password: password
 		}).then(function(response){
 			authTokenFactory.setToken(response.data.token)
+			// localStorage.setItem('userData',response.data.user)
+			console.log('this is the user object:',response.data.user._id )
+			user_id = response.data.user._id
 			return response
 		})
 	}
 
 	authFactory.signup = function(name,email,password,experience,gyms){
-		return $http.post('/api/users', {
+		return $http.post( '/api/users', {
 			name: name,
 			email: email,
 			password: password,
@@ -41,7 +44,9 @@ function authFactory($http, $q, authTokenFactory){
 
 	// handle logout
 	authFactory.logout = function(){
-		authTokenFactory.setToken()
+		console.log('logout hitting factory')
+		localStorage.removeItem('token')
+		// localStorage.removeItem('userData')
 	}
 
 	// check if a user is logged in
@@ -55,9 +60,13 @@ function authFactory($http, $q, authTokenFactory){
 
 	// get that user's info
 	authFactory.getUser = function(){
+		// var userData = localStorage.getItem('userData')
+		// userData = JSON.parse( userData ) 
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
-			return $http.get('/api/me')
+			console.log(user_id)
+			// console.log( '/api/users/'+ user_id)
+			return $http.get('/api/users/' + user_id)
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
@@ -78,8 +87,10 @@ function authTokenFactory($window){
 	authTokenFactory.setToken = function( token ){
 		if(token){
 			$window.localStorage.setItem('token', token)
+			// $window.localStorage.setItem('userData', userData)
 		} else {
 			$window.localStorage.removeItem( 'token' )
+			// $window.localStorage.removeItem( 'userData' )
 		}
 	}
 	return authTokenFactory
