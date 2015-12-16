@@ -1,5 +1,5 @@
 angular.module('topOutApp', ['topOutRouter', 'mainCtrl', 'authFactory',])
-
+.config(interceptor)
 .directive('navbar', navbar)
 
   function navbar(){
@@ -10,3 +10,6 @@ angular.module('topOutApp', ['topOutRouter', 'mainCtrl', 'authFactory',])
   return directive
 }
 
+function interceptor($httpProvider){
+	$httpProvider.interceptors.push('authInterceptorFactory')
+}
