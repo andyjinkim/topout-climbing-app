@@ -38,7 +38,7 @@ function MainController($state, authFactory, $rootScope){
 		authFactory.signup(vm.user.name, vm.user.email, vm.user.password, vm.user.experience, vm.user.gyms)
 		.then(function(response){
 			if(response.data.success){
-				console.log(vm.user)
+				// console.log(vm.user)
 				vm.login()
 			} else {
 				console.log('sign up did not work')
@@ -50,9 +50,7 @@ function MainController($state, authFactory, $rootScope){
 	function login(){
 		authFactory.login(vm.user.email, vm.user.password)
 		.then(function(response){
-			console.log(response.data)
 			if(response.data.success){
-				console.log(response.data)
 				//upon successful login redirect user to user-home page
 				$state.go("user-home")
 			} else {

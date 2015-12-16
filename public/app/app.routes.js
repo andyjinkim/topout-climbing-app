@@ -1,12 +1,6 @@
 angular.module('topOutRouter', ['ui.router'])
-  // .config([interceptor])
   .config(['$stateProvider', '$urlRouterProvider', MainRouter])
-
-// add navbar directive later
-
-
-
-
+  .run(['$state', function ($state) {}])
 function MainRouter($stateProvider, $urlRouterProvider){
 
 	$stateProvider

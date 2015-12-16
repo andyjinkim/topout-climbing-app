@@ -17,6 +17,3 @@ function interceptor($httpProvider){
   return directive
 }
 
-function interceptor($httpProvider){
-	$httpProvider.interceptors.push('authInterceptorFactory')
-}

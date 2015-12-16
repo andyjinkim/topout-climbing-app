@@ -9,6 +9,7 @@ authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
 
 	var authFactory = {}
+	var user_id
 
 	authFactory.index = function(){
 		return $http.get('/api/users')
@@ -19,9 +20,10 @@ function authFactory($http, $q, authTokenFactory){
 			email: email,
 			password: password
 		}).then(function(response){
-			authTokenFactory.setToken(response.data.token,response.data.user)
+			authTokenFactory.setToken(response.data.token)
 			// localStorage.setItem('userData',response.data.user)
-			console.log( response.data )
+			console.log('this is the user object:',response.data.user._id )
+			user_id = response.data.user._id
 			return response
 		})
 	}
@@ -44,7 +46,7 @@ function authFactory($http, $q, authTokenFactory){
 	authFactory.logout = function(){
 		console.log('logout hitting factory')
 		localStorage.removeItem('token')
-		localStorage.removeItem('userData')
+		// localStorage.removeItem('userData')
 	}
 
 	// check if a user is logged in
@@ -58,11 +60,13 @@ function authFactory($http, $q, authTokenFactory){
 
 	// get that user's info
 	authFactory.getUser = function(){
-		var userData = localStorage.getItem('userData')
-		userData = JSON.parse( userData ) 
+		// var userData = localStorage.getItem('userData')
+		// userData = JSON.parse( userData ) 
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
-			return $http.get('/api/users/' + userData._id )
+			console.log(user_id)
+			// console.log( '/api/users/'+ user_id)
+			return $http.get('/api/users/' + user_id)
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
@@ -80,13 +84,13 @@ function authTokenFactory($window){
 		return $window.localStorage.getItem('token')
 	}
 	// set the token
-	authTokenFactory.setToken = function( token, userData ){
+	authTokenFactory.setToken = function( token ){
 		if(token){
 			$window.localStorage.setItem('token', token)
-			$window.localStorage.setItem('userData', userData)
+			// $window.localStorage.setItem('userData', userData)
 		} else {
 			$window.localStorage.removeItem( 'token' )
-			$window.localStorage.removeItem( 'userData' )
+			// $window.localStorage.removeItem( 'userData' )
 		}
 	}
 	return authTokenFactory
