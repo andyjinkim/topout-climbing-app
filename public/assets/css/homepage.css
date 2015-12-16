@@ -4,6 +4,22 @@ html {
   font-size: 14px;
 }
 
+.ui.one.column.stackable.center.aligned.page.grid{
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+}
+.ui.inverted.centered.lead{
+  text-align: center;
+}
+
+.large.basic.inverted.animated.fade.ui.button{
+  margin-bottom:10px;
+}
+
+.ui.large.primary.button{
+
+}
 
 #peacerock {
   margin-bottom: 25px;
@@ -19,6 +35,8 @@ html {
     border-radius: .28571429rem;
     border: 1px solid rgba(34,36,38,.15);
 }
+
+
 
 .ui.centered.grid, .ui.centered.grid>.row, .ui.grid>.centered.row {
     text-align: center;
