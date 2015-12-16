@@ -9,7 +9,8 @@ authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
 
 	var authFactory = {}
-	var user_id
+	var userObj
+	// var user_id
 
 	authFactory.index = function(){
 		return $http.get('/api/users')
@@ -22,8 +23,9 @@ function authFactory($http, $q, authTokenFactory){
 		}).then(function(response){
 			authTokenFactory.setToken(response.data.token)
 			// localStorage.setItem('userData',response.data.user)
-			console.log('this is the user object:',response.data.user._id )
-			user_id = response.data.user._id
+			console.log('this is the user object:',response.data.user )
+			// user_id = response.data.user._id
+			userObj = response.data.user
 			return response
 		})
 	}
@@ -66,7 +68,7 @@ function authFactory($http, $q, authTokenFactory){
 			console.log('get user authfactory function hitting')
 			// console.log(user_id)
 			// console.log( '/api/users/'+ user_id)
-			return $http.get('/api/users/' + user_id)
+			return $http.get('/api/users/' + userObj._id)
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
