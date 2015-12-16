@@ -4,10 +4,7 @@ angular.module('topOutRouter', ['ui.router'])
 
 // add navbar directive later
 
-// interceptor
-// function interceptor($httpProvider){
-// 	$httpProvider.interceptors.push('authInterceptorFactory')
-// }
+
 
 
 function MainRouter($stateProvider, $urlRouterProvider){
@@ -19,7 +16,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			controller: 'MainController as mainCtrl'
 		})
 		.state('loggedOut', {
-			url: '/loggedOut',
+			url: '/logout',
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
