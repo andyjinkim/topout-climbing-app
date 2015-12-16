@@ -15,7 +15,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
-		.state('loggedOut', {
+		.state('loggedout', {
 			url: '/logout',
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'

@@ -4,7 +4,6 @@ angular.module('authFactory', [])
 	.factory('authInterceptorFactory', authInterceptorFactory)
 	.factory('authFactory', authFactory)
 
-
 //authFactory for http requests to the api
 authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
@@ -21,12 +20,14 @@ function authFactory($http, $q, authTokenFactory){
 			password: password
 		}).then(function(response){
 			authTokenFactory.setToken(response.data.token)
+			localStorage.setItem('user', JSON.stringify( response.data.user ) )
+			console.log( response.data )
 			return response
 		})
 	}
 
 	authFactory.signup = function(name,email,password,experience,gyms){
-		return $http.post('/api/users', {
+		return $http.post( '/api/users', {
 			name: name,
 			email: email,
 			password: password,
@@ -41,7 +42,8 @@ function authFactory($http, $q, authTokenFactory){
 
 	// handle logout
 	authFactory.logout = function(){
-		authTokenFactory.setToken()
+		console.log('logout hitting factory')
+		localStorage.removeItem('token')
 	}
 
 	// check if a user is logged in
@@ -55,9 +57,11 @@ function authFactory($http, $q, authTokenFactory){
 
 	// get that user's info
 	authFactory.getUser = function(){
+		var userObj = localStorage.getItem('user')
+		userObj = JSON.parse( userObj ) 
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
-			return $http.get('/api/me')
+			return $http.get('/api/users/' + userObj._id )
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}

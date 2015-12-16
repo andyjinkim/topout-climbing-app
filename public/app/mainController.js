@@ -21,8 +21,10 @@ function MainController($state, authFactory, $rootScope){
 	});
 
 	function logout(){
-		$state.go('loggedOut')
+		console.log('trigger from frontend')
 		authFactory.logout()
+		$state.go('loggedout')
+		
 	}
 
 	function getUser(){
