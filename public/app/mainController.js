@@ -36,8 +36,10 @@ function MainController($state, authFactory, $rootScope){
 		authFactory.signup(vm.user.name, vm.user.email, vm.user.password, vm.user.experience, vm.user.gyms)
 		.then(function(response){
 			if(response.data.success){
+				console.log(vm.user)
 				vm.login()
 			} else {
+				console.log('sign up did not work')
 				vm.error = response.data.message
 			}
 		})
