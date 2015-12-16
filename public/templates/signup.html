@@ -7,21 +7,21 @@
 <!-- data under login tab -->
 <div class="ui bottom attached tab segment active" data-tab="first">
     <h1>User Registration</h1>
-    <form ng-submit="mainCtrl.saveUser()">
+    <form ng-submit="mainCtrl.signup()">
    <div class="form-group">
-     <input placeholder="Name" type="text" class="form-control" ng-model="mainCtrl.userData.name">
+     <input placeholder="Name" type="text" class="form-control" ng-model="mainCtrl.user.name">
    </div>
         <div class="form-group">
-            <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.userData.email">
+            <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
         </div>
         <div class="form-group">
-            <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.userData.password">
+            <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.user.password">
         </div>
         <div class="form-group">
-            <input placeholder="Experience" type="text" class="form-control" ng-model="mainCtrl.userData.password">
+            <input placeholder="Experience" type="text" class="form-control" ng-model="mainCtrl.user.experience">
         </div>
         <div class="form-group">
-            <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.userData.password">
+            <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.user.gym">
         </div>
         <button type="submit" class="btn btn-block btn-primary">
             <span>Register</span>

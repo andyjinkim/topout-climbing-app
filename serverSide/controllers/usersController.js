@@ -31,6 +31,7 @@ function create(req, res){
 				res.send(err)
 			}
 		}
+		console.log('attempting to send json')
 		res.json({success: true, message: "User created, Lets get to climbing!"})
 	})
 }
