@@ -1,5 +1,4 @@
- 
-   <form ng-submit="climbCtrl.createClimb(climbCtrl.user.climbs.section,climbCtrl.user.climbs.grade,climbCtrl.user.climbs.color,climbsCtrl.user.climbs.rating)">
+ <form ng-submit="climbCtrl.createClimb(climbCtrl.user.climbs.section,climbCtrl.user.climbs.grade,climbCtrl.user.climbs.color,climbsCtrl.user.climbs.rating)">
        <div class="ui one column grid basic segment">
          <div class="column">
            <div class="ui blue stacked segment">
@@ -12,7 +11,7 @@
                      <option value="Intermediate">Wall 2</option>
                      <option value="Advanced">Wall 3</option>
                      <option value="Godlike">Wall 4</option>
-                   </select> 
+                   </select>
                  </div>
                  <div class="field">
                    <label>Grade</label>
@@ -27,7 +26,7 @@
                      <option value="V8">V8</option>
                      <option value="V9">V9</option>
                      <option value="V10">V10</option>
-                   </select> 
+                   </select>
                  </div>
                  <div class="field">
                    <label>Color</label>
@@ -37,18 +36,21 @@
                  </div>
                  <div class="field">
                    <label> Rating</label>
-                   <select name="rating" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.rating">
+
+                   <div class="ui left labeled icon input">
+                     <input placeholder="Rating" type="text" class="form-control" ng-model="climbCtrl.user.climbs.rating">
+                   </div>
+                   <!-- <select name="rating" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.rating">
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
                      <option value="4">4</option>
                      <option value="5">5</option>
-                    
-                   </select>
+                   </select> -->
                  </div>
-               
 
-        
+
+
                 <button class="ui red submit button" type="submit">
                      <span>Log Climb</span>
                  </button>

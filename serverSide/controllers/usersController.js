@@ -1,4 +1,5 @@
 var User = require('../models/User')
+var Climb = require('../models/Climb')
 
 function index(req, res){
 	// function to get all the users
@@ -50,11 +51,14 @@ function show(req, res){
 function update(req, res){
 	// update a single user -- update
 	User.findById(req.params.user_id, function(err, user){
+
+		var climb = new Climb(req.body)
+
 		if(err) res.send(err)
 
 		if (req.body.name) {
-			user.name = req.body.name			
-		} 	
+			user.name = req.body.name
+		}
 		console.log('update in usersctrl hitting', req.body)
 		if(req.body.email) 		user.email 		= req.body.email
 		if(req.body.password) 	user.password 	= req.body.password
@@ -64,7 +68,7 @@ function update(req, res){
 		if(req.body.level) 		user.level 		= req.body.level
 		if(req.body.followers) 	user.followers 	= req.body.followers
 		if(req.body.following) 	user.following 	= req.body.following
-		if(req.body.climbs)		user.climbs		= req.body.climbs
+		if(req.body.climbs)		user.climbs		= climb
 
 		user.save(function(err){
 			if(err) res.send(err)

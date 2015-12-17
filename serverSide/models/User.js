@@ -1,6 +1,21 @@
 var mongoose = require('mongoose')
 var Schema   = mongoose.Schema
 var bcrypt	 = require('bcrypt-nodejs')
+var Climb    = require( './Climb.js' )
+
+
+/***********************
+Hope this works
+***********************/
+
+var climbSchema = new Schema({
+	section: String,
+	grade: String,
+	color: String,
+	rating: String
+})
+
+/************************/
 
 
 //create UserSchema
@@ -13,7 +28,7 @@ var UserSchema = new Schema({
 	level: String,
 	followers: [],
 	following: [],
-	climbs: [Object],
+	climbs: [ climbSchema ],
 	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
 	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
 	gyms: String
