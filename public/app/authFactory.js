@@ -44,6 +44,11 @@ function authFactory($http, $q, authTokenFactory){
 		})
 	}
 
+	authFactory.createClimb = function(climb){
+		return $http.put('/api/users/' + userObj._id, climb)
+	}
+
+
 	authFactory.updateUser = function(name,email,password,experience,gyms){
 		console.log('SOMEHOW BUT HOW');
 		if(authTokenFactory.getToken()){

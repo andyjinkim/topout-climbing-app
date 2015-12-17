@@ -13,7 +13,8 @@ var UserSchema = new Schema({
 	level: String,
 	followers: [],
 	following: [],
-	compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
+	climbs: [Object],
+	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
 	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
 	gyms: String
 })
@@ -43,9 +44,9 @@ UserSchema.methods.completeClimb = function(climb){
 	user.compClimbs.push(climb)
 	user.save
 }
-UserSchema.methods.addGym = function(gym){
-	var user = this
-	user.gyms.push(gym)
+UserSchema.methods.addClimb = function(climb){
+	var climb = this
+	user.climbs.push(climb)
 	user.save
 }
 //export user model to be used elsewhere
