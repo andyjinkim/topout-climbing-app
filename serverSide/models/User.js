@@ -14,7 +14,8 @@ var UserSchema = new Schema({
 	followers: [],
 	following: [],
 	compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
-	gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
+	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
+	gyms: String
 })
 
 //hash password of user before being saved

@@ -24,15 +24,18 @@ function MainController($state, authFactory, $rootScope){
 		console.log('trigger from frontend')
 		authFactory.logout()
 		$state.go('loggedout')
-		
+
 	}
 
 	function getUser(){
 		authFactory.getUser() //$http.get('/api/me')
 		.then(function(response){
+			console.log(response)
 			vm.user = response.data
+
 		})
 	}
+
 
 	function signup(){
 		authFactory.signup(vm.user.name, vm.user.email, vm.user.password, vm.user.experience, vm.user.gyms)
@@ -54,6 +57,19 @@ function MainController($state, authFactory, $rootScope){
 				//upon successful login redirect user to user-home page
 				$state.go("user-home")
 			} else {
+				vm.error = response.data.message
+			}
+		})
+	}
+
+	function updateUser(){
+		console.log('updateUser function hitting')
+		authFactory.updateUser(vm.user.name, vm.user.email, vm.user.password, vm.user.experience, vm.user.gyms)
+		.then(function(response){
+			if(response.data.success){
+				$state.go('user-home')
+			} else{
+				console.log('update did not work')
 				vm.error = response.data.message
 			}
 		})

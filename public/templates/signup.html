@@ -21,7 +21,7 @@ $('.menu .item')
 
   <!-- ////////////First form for the user login ////////////////////// -->
   <div class="ui bottom attached tab segment active" data-tab="first">
-   <form ng-submit="mainCtrl.login()">
+   <form ng-submit="mainCtrl.signup()">
        <div class="ui one column grid basic segment">
          <div class="column">
            <div class="ui blue stacked segment">
@@ -48,20 +48,33 @@ $('.menu .item')
                      <i class="user icon"></i>
                    </div>
                  </div>
+
                  <div class="field">
                    <label> Experience </label>
-                   <div class="ui left labeled icon input">
-                    <input placeholder="Experience" type="text" class="form-control" ng-model="mainCtrl.userData.experience">
-                     <i class="user icon"></i>
-                   </div>
+                   <select name="experience" class="ui fluid dropdown" ng-model="mainCtrl.user.experience">
+                     <option value="Beginner">Beginner</option>
+                     <option value="Intermediate">Intermediate</option>
+                     <option value="Advanced">Advanced</option>
+                     <option value="Godlike">Godlike</option>
+                     <option value="Santi">Santi</option>
+                   </select>
                  </div>
                  <div class="field">
-                   <label> Gyms</label>
-                   <div class="ui left labeled icon input">
-                    <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.userData.gyms">
-                     <i class="user icon"></i>
-                   </div>
+                   <label> Gym </label>
+                   <select name="gyms" class="ui fluid dropdown" ng-model="mainCtrl.user.gyms">
+                     <option value="LA Boulder">LA Boulder</option>
+                     <option value="Your Mom's House">Your Mom's House</option>
+                   </select>
                  </div>
+
+                 <!-- <div class="field">
+                    <label> Gyms</label>
+                    <div class="ui left labeled icon input">
+                     <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.user.gyms">
+                      <i class="user icon"></i>
+                    </div>
+                  </div> -->
+
                  <button type="submit" class="ui red submit button">
                      <span>Sign Up</span>
                  </button>
