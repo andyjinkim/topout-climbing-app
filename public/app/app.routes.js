@@ -34,6 +34,11 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/user-home.html',
 			controller: 'MainController as mainCtrl'
 		})
+		.state('climbroutes', {
+			url: '/climbroutes',
+			templateUrl: '../templates/my-routes.html',
+			controller: 'MainController as mainCtrl'
+		})
 		.state('user-profile', {
 			url: '/user-profile',
 			templateUrl: '../templates/user-profile.html',

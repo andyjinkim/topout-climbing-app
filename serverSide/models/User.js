@@ -13,7 +13,8 @@ var UserSchema = new Schema({
 	level: String,
 	followers: [],
 	following: [],
-	compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
+	climbs: [Object],
+	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
 	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
 	gyms: String
 })
