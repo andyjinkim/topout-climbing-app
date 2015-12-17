@@ -1,60 +1,151 @@
 
-<!-- Semantic for tabs -->
-<div class="ui top attached tabular menu" style="margin-top:75px">
- <a class="item active" data-tab="first">User Sign Up!</a>
- <a class="item" data-tab="second">Gym Sign Up!</a>
-</div>
-<!-- data under login tab -->
-<div class="ui bottom attached tab segment active" data-tab="first">
-    <h1>User Registration</h1>
-    <form ng-submit="mainCtrl.signup()">
-   <div class="form-group">
-     <input placeholder="Name" type="text" class="form-control" ng-model="mainCtrl.user.name">
-   </div>
-        <div class="form-group">
-            <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
-        </div>
-        <div class="form-group">
-            <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.user.password">
-        </div>
-        <div class="form-group">
-            <input placeholder="Experience" type="text" class="form-control" ng-model="mainCtrl.user.experience">
-        </div>
-        <div class="form-group">
-            <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.user.gyms">
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">
-            <span>Register</span>
-        </button>
-    </form>
-</div>
-<!-- data under sign up tab -->
-<div class="ui bottom attached tab segment" data-tab="second">
-    <h1>Gym Registration!</h1>
-    <!-- <form ng-submit="mainCtrl.saveUser()">
-   <div class="form-group">
-     <input placeholder="Name" type="text" class="form-control" ng-model="mainCtrl.userData.name">
-   </div>
-        <div class="form-group">
-            <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.userData.email">
-        </div>
-        <div class="form-group">
-            <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.userData.password">
-        </div>
-        <div class="form-group">
-            <input placeholder="Experience" type="text" class="form-control" ng-model="mainCtrl.userData.password">
-        </div>
-        <div class="form-group">
-            <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.userData.password">
-        </div>
-        <button type="submit" class="btn btn-block btn-primary">
-            <span>Register</span>
-        </button>
-    </form> -->
-</div>
+<link rel="stylesheet" type="text/css" href="../assets/css/signup.css">
+<script src="../assets/js/signup.js"></script>
 
-<!-- script for activating tabs on click -->
 <script>
 $('.menu .item')
- .tab()
+.tab()
 </script>
+
+
+
+<!-- ///////////////// Segment to switch from User and Gym Login      //////////////////////////-->
+
+
+<div class="signupcontainer">
+<div class="ui raised segment signin">
+ <div class="ui top attached tabular menu" style="margin-top:75px">
+  <a class="item active" data-tab="first">User Sign Up!</a>
+  <a class="item" data-tab="second">Gym Sign Up!</a>
+  </div>
+
+  <!-- ////////////First form for the user login ////////////////////// -->
+  <div class="ui bottom attached tab segment active" data-tab="first">
+   <form ng-submit="mainCtrl.signup()">
+       <div class="ui one column grid basic segment">
+         <div class="column">
+           <div class="ui blue stacked segment">
+               <!-- form here -->
+               <div class="ui form">
+                 <div class="field">
+                   <label> Name </label>
+                   <div class="ui left labeled icon input">
+                     <input placeholder="Name" type="text" class="form-control" ng-model="mainCtrl.user.name">
+                     <i class="user icon"></i>
+                   </div>
+                 </div>
+                 <div class="field">
+                   <label> Email </label>
+                   <div class="ui left labeled icon input">
+                     <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
+                     <i class="lock icon"></i>
+                   </div>
+                 </div>
+                 <div class="field">
+                   <label> Password </label>
+                   <div class="ui left labeled icon input">
+                       <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.user.password">
+                     <i class="user icon"></i>
+                   </div>
+                 </div>
+
+                 <div class="field">
+                   <label> Experience </label>
+                   <select name="experience" class="ui fluid dropdown" ng-model="mainCtrl.user.experience">
+                     <option value="Beginner">Beginner</option>
+                     <option value="Intermediate">Intermediate</option>
+                     <option value="Advanced">Advanced</option>
+                     <option value="Godlike">Godlike</option>
+                     <option value="Santi">Santi</option>
+                   </select>
+                 </div>
+                 <div class="field">
+                   <label> Gym </label>
+                   <select name="gyms" class="ui fluid dropdown" ng-model="mainCtrl.user.gyms">
+                     <option value="LA Boulder">LA Boulder</option>
+                     <option value="Your Mom's House">Your Mom's House</option>
+                   </select>
+                 </div>
+
+                 <!-- <div class="field">
+                    <label> Gyms</label>
+                    <div class="ui left labeled icon input">
+                     <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.user.gyms">
+                      <i class="user icon"></i>
+                    </div>
+                  </div> -->
+
+                 <button type="submit" class="ui red submit button">
+                     <span>Sign Up</span>
+                 </button>
+
+              <a href="/#/login"><button type="submit" class="ui blue submit button derecha">
+                   <span>Log In</span>
+                </button></a>
+               </div>
+           </div>
+         </div>
+
+
+
+         </div>
+       </div>
+   </form>
+
+<!-- //////////////////// Second Form for Gym LOGIN ////////////////////////////////// -->
+<div class="ui bottom attached tab segment" data-tab="second">
+ <form ng-submit="mainCtrl.login()">
+     <div class="ui one column grid basic segment">
+       <div class="column">
+         <div class="ui blue stacked segment">
+             <!-- form here -->
+             <div class="ui form">
+               <div class="field">
+                 <label> Name </label>
+                 <div class="ui left labeled icon input">
+                   <input placeholder="Name" type="text" class="form-control" ng-model="mainCtrl.user.name">
+                   <i class="user icon"></i>
+                 </div>
+               </div>
+               <div class="field">
+                 <label> Email </label>
+                 <div class="ui left labeled icon input">
+                   <input placeholder="Email" type="text" class="form-control" ng-model="mainCtrl.user.email">
+                   <i class="lock icon"></i>
+                 </div>
+               </div>
+               <div class="field">
+                 <label> Password </label>
+                 <div class="ui left labeled icon input">
+                     <input placeholder="Password" type="password" class="form-control" ng-model="mainCtrl.user.password">
+                   <i class="user icon"></i>
+                 </div>
+               </div>
+               <div class="field">
+                 <label> Experience </label>
+                 <div class="ui left labeled icon input">
+                  <input placeholder="Experience" type="text" class="form-control" ng-model="mainCtrl.userData.experience">
+                   <i class="user icon"></i>
+                 </div>
+               </div>
+               <div class="field">
+                 <label> Gyms</label>
+                 <div class="ui left labeled icon input">
+                  <input placeholder="Gym" type="text" class="form-control" ng-model="mainCtrl.userData.gyms">
+                   <i class="user icon"></i>
+                 </div>
+               </div>
+               <button type="submit" class="ui red submit button">
+                   <span>Gym Signup</span>
+               </a></button>
+               <a href="/#/login"><button type="submit" class="ui blue submit button derecha">
+                    <span>Log In</span>
+                 </button></a>
+             </div>
+         </div>
+       </div>
+     </div>
+ </form>
+</div>
+</div>
+</div>

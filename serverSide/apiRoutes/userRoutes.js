@@ -5,6 +5,7 @@ var User        = require('../models/User')
 var jwt         = require('jsonwebtoken')
 var	superSecret = 'project4'
 var usersController = require('../controllers/usersController')
+var gymController = require('../controllers/gymController')
 
 apiRouter.get('/', function(req,res){
 	res.json({message: "Api routes are working."})
@@ -42,7 +43,7 @@ apiRouter.route('/authenticate')
 	}).exec(function(err, user){
 		if(err) throw err
 		if(!user){
-			res.json({success: false, message: "auth failed, user not valid"})
+			res.json({success: false, message: "Auth failed, user not valid"})
 		} else if(user){
 			// check passwords
 			var validPassword = user.comparePassword(req.body.password)
@@ -58,11 +59,11 @@ apiRouter.route('/authenticate')
 					expiresInMinutes: 1440
 				})
 				// grant token
-				res.json({ 
-					success: true, 
-					message: "enjoy your token!", 
-					token: token, 
-					user : user 
+				res.json({
+					success: true,
+					message: "enjoy your token!",
+					token: token,
+					user : user
 				})
 			}
 		}
@@ -116,5 +117,31 @@ apiRouter.route('/users/:user_id')
 
 	.delete(usersController.destroy)
 
+
+/////////////////////////////////////////API Routes for a gym//////////////////////////////////////////////
+//create a gym
+apiRouter.route('/gyms')
+	.post(gymController.create)
+
+//get all gyms route
+apiRouter.route('/gyms')
+	.get(gymController.index)
+
+//get current user route
+apiRouter.route('/me')
+	.get(function(req, res){
+		console.log(res)
+		res.json(req.decoded)
+	})
+
+//update or delete current user route
+apiRouter.route('/gyms/:gym_id')
+	.get(gymController.show)
+
+	// .put(gymController.update)
+
+	.delete(gymController.destroy)
+
+	
 //export apiRouter to be used in controller
 module.exports = apiRouter

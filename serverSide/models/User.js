@@ -11,9 +11,12 @@ var UserSchema = new Schema({
 	experience: String,
 	points: Number,
 	level: String,
-	gyms: [],
 	followers: [],
-	following: []
+	following: [],
+	climbs: [Object],
+	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
+	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
+	gyms: String
 })
 
 //hash password of user before being saved
@@ -34,6 +37,17 @@ UserSchema.methods.comparePassword = function(password){
 	var user = this
 
 	return bcrypt.compareSync(password,user.password)
+}
+
+UserSchema.methods.completeClimb = function(climb){
+	var user = this
+	user.compClimbs.push(climb)
+	user.save
+}
+UserSchema.methods.addClimb = function(climb){
+	var climb = this
+	user.climbs.push(climb)
+	user.save
 }
 //export user model to be used elsewhere
 module.exports = mongoose.model('User', UserSchema)
