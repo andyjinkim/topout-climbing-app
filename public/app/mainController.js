@@ -39,7 +39,7 @@ function MainController($state, authFactory, $rootScope){
 	function getUser(){
 		authFactory.getUser() //$http.get('/api/me')
 		.then(function(response){
-			console.log(response)
+			console.log("GETUSER RESPONSE =====",response)
 			vm.user = response.data
 
 		})

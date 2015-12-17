@@ -1,3 +1,4 @@
+<!-- <div ng-controller="MainController as mainCtrl" ng-init="mainCtrl.getUser()" ></div> -->
  <form ng-submit="climbCtrl.createClimb(climbCtrl.user.climbs.section,climbCtrl.user.climbs.grade,climbCtrl.user.climbs.color,climbsCtrl.user.climbs.rating)">
        <div class="ui one column grid basic segment">
          <div class="column">
@@ -7,10 +8,10 @@
                  <div class="field">
                    <label>Section</label>
                    <select name="section" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.section">
-                     <option value="Beginner">Wall 1</option>
-                     <option value="Intermediate">Wall 2</option>
-                     <option value="Advanced">Wall 3</option>
-                     <option value="Godlike">Wall 4</option>
+                     <option value="Wall 1">Wall 1</option>
+                     <option value="Wall 2">Wall 2</option>
+                     <option value="Wall 3">Wall 3</option>
+                     <option value="Wall 4">Wall 4</option>
                    </select>
                  </div>
                  <div class="field">
@@ -36,17 +37,13 @@
                  </div>
                  <div class="field">
                    <label> Rating</label>
-
-                   <div class="ui left labeled icon input">
-                     <input placeholder="Rating" type="text" class="form-control" ng-model="climbCtrl.user.climbs.rating">
-                   </div>
-                   <!-- <select name="rating" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.rating">
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                   </select> -->
+                   <select name="rating" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.rating">
+                     <option value=1>1</option>
+                     <option value=2>2</option>
+                     <option value=3>3</option>
+                     <option value=4>4</option>
+                     <option value=5>5</option>
+                   </select>
                  </div>
 
 
