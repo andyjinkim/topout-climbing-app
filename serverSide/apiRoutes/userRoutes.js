@@ -6,6 +6,7 @@ var jwt         = require('jsonwebtoken')
 var	superSecret = 'project4'
 var usersController = require('../controllers/usersController')
 var gymController = require('../controllers/gymController')
+var climbsController = require( '../controllers/climbController')
 
 apiRouter.get('/', function(req,res){
 	res.json({message: "Api routes are working."})
@@ -112,7 +113,7 @@ apiRouter.route('/me')
 //update or delete current user route
 apiRouter.route('/users/:user_id')
 	.get(usersController.show)
-
+	.post( climbsController.create )
 	.put(usersController.update)
 
 	.delete(usersController.destroy)
@@ -142,6 +143,6 @@ apiRouter.route('/gyms/:gym_id')
 
 	.delete(gymController.destroy)
 
-	
+
 //export apiRouter to be used in controller
 module.exports = apiRouter

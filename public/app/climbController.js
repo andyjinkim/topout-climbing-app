@@ -7,7 +7,7 @@ function climbController($state, authFactory, $rootScope){
 	var vm = this
 	var climbObj = {}
 
-	
+
 console.log('climb controller hit')
 
 	vm.createClimb = function(section,grade,color,rating){
@@ -20,9 +20,9 @@ console.log('climb controller hit')
 		}
 		authFactory.createClimb(climb)
 		.then(function(response){
+			console.log( "RES", response )
 			if(response.data.success){
 				console.log(response.data)
-				user.save
 				vm.climb = {}
 			} else {
 				console.log('sign up did not work')
