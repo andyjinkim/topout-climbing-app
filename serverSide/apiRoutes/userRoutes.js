@@ -107,7 +107,7 @@ apiRouter.route('/users')
 apiRouter.route('/me')
 	.get(function(req, res){
 		console.log(res)
-		res.json(req.decoded)
+		res.send(req.decoded)
 	})
 
 //update or delete current user route
@@ -129,11 +129,11 @@ apiRouter.route('/gyms')
 	.get(gymController.index)
 
 //get current user route
-apiRouter.route('/me')
-	.get(function(req, res){
-		console.log(res)
-		res.json(req.decoded)
-	})
+// apiRouter.route('/me')
+// 	.get(function(req, res){
+// 		console.log(res)
+// 		res.json(req.decoded)
+// 	})
 
 //update or delete current user route
 apiRouter.route('/gyms/:gym_id')

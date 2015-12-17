@@ -85,10 +85,10 @@ function authFactory($http, $q, authTokenFactory){
 		// var userData = localStorage.getItem('userData')
 		// userData = JSON.parse( userData )
 		if(authTokenFactory.getToken()){
-			console.log('get user authfactory function hitting')
+			console.log('getting Token')
 			// console.log(user_id)
 			// console.log( '/api/users/'+ user_id)
-			return $http.get('/api/users/' + userObj._id)
+			return $http.get('/api/me')
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}

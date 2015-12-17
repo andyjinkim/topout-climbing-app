@@ -25,7 +25,7 @@ console.log('climb controller hit')
 				console.log(response.data)
 				vm.climb = {}
 			} else {
-				console.log('sign up did not work')
+				console.log('climb creation did not work')
 				vm.error = response.data.message
 			}
 		})

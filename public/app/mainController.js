@@ -13,11 +13,20 @@ function MainController($state, authFactory, $rootScope){
 	vm.getUser = getUser
 	vm.error = null
 
+
+
 	// check to see if a user is logged in on every request. $rootScope is a service of angular
 	$rootScope.$on('$stateChangeStart', function() {
+		console.log('in the $rootScope.$on function')
 		vm.loggedIn = authFactory.isLoggedIn()
-		vm.getUser()
-		vm.error = null
+		console.log("user is logged in:", vm.loggedIn)
+		authFactory.getUser()
+		console.log('hitting the authFactory.getUser')
+			.then(function(data){
+				console.log('hitting the .then promise: ', data);
+				vm.user = data.data
+				console.log("LOOK:", vm.user)
+			})
 	});
 
 	function logout(){
@@ -35,7 +44,6 @@ function MainController($state, authFactory, $rootScope){
 
 		})
 	}
-
 
 	function signup(){
 		authFactory.signup(vm.user.name, vm.user.email, vm.user.password, vm.user.experience, vm.user.gyms)
@@ -76,7 +84,3 @@ function MainController($state, authFactory, $rootScope){
 	}
 
 }
-
-
-
-
