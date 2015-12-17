@@ -2,6 +2,47 @@
 <h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
 <h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms[0]}}</h1>
 
-
 <button ng-click="mainCtrl.getUser()">Get user object</button>
+
+
+<h2 >My Climbs: {{mainCtrl.user.climbs}}</h2>
+<!-- <table class="table table-bordered table-striped" ng-show="user.users">
+	<thead>
+		<tr>
+			<th>_id</th>
+			<th>Name</th>
+			<th>Username</th>
+			<th class="col-sm-2"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="person in user.users">
+			<td>{{ person._id }}</td>
+			<td>{{ person.name }}</td>
+			<td>{{ person.username }}</td>
+			<td class="col-sm-2">
+				<a ng-href="/users/{{ person._id }}" class="btn btn-danger">Edit</a>
+				<a href="#" ng-click="user.deleteUser(person._id)" class="btn btn-primary">Delete</a>
+			</td>
+		</tr>
+	</tbody>
+</table> -->
+
+<table class="ui celled table">
+  <thead>
+    <tr><th>Gym Section</th>
+    <th>Grade</th>
+    <th>Color</th>
+    <th>Rating</th>
+    <!-- <th>Date</th> -->
+  </tr></thead>
+  <tbody>
+    <tr ng-repeat="climb in maintCtrl.user.climbs">
+      <td>{{climb.section}}</td>
+      <td>{{climb.grade}}</td>
+      <td>{{climb.color}}</td>
+      <td>{{climb.rating}}</td>
+    </tr>
+  </tbody>
+</table>
 
