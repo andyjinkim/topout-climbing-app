@@ -22,7 +22,7 @@ console.log('climb controller hit')
 		.then(function(response){
 			if(response.data.success){
 				console.log(response.data)
-				user.save
+				// user.save
 				vm.climb = {}
 			} else {
 				console.log('sign up did not work')
