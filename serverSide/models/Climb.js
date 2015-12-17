@@ -6,6 +6,9 @@ var climbSchema = new Schema({
 	section: String,
 	grade: String,
 	color: String,
-	rating: Number,
-	_gym: {type: Number, ref: "Gym" }
+	rating: String
 })
+
+var Climb = mongoose.model('Climb', climbSchema)
+
+module.exports = Climb

@@ -45,7 +45,7 @@ function authFactory($http, $q, authTokenFactory){
 	}
 
 	authFactory.createClimb = function(climb){
-		return $http.put('/api/users/' + userObj._id, climb)
+		return $http.post('/api/users/' + userObj._id, climb)
 	}
 
 
