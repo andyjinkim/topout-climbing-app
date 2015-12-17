@@ -6,7 +6,7 @@ var climbSchema = new Schema({
 	section: String,
 	grade: String,
 	color: String,
-	rating: String
+	rating: Number
 })
 
 var Climb = mongoose.model('Climb', climbSchema)
