@@ -9,7 +9,7 @@ authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
 
 	var authFactory = {}
-	var userObj
+	// var userData
 	// var user_id
 
 	authFactory.index = function(){
@@ -45,14 +45,18 @@ function authFactory($http, $q, authTokenFactory){
 	}
 
 	authFactory.createClimb = function(climb){
-		return $http.post('/api/users/' + userObj._id, climb)
+		var userData = localStorage.getItem('userData')
+		userData = JSON.parse( userData )
+		return $http.post('/api/users/' + userData._id, climb)
 	}
 
 
 	authFactory.updateUser = function(name,email,password,experience,gyms){
-		console.log('SOMEHOW BUT HOW');
+		console.log('SOMEHOW BUT HOW')
+		var userData = localStorage.getItem('userData')
+		userData = JSON.parse( userData )
 		if(authTokenFactory.getToken()){
-				return $http.put('/api/users/' + userObj._id, {
+				return $http.put('/api/users/' + userData._id, {
 				name: name,
 				email: email,
 				password: password,
