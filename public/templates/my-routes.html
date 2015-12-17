@@ -1,0 +1,59 @@
+ <form ng-submit="climbCtrl.createClimb(climbCtrl.user.climbs.section,climbCtrl.user.climbs.grade,climbCtrl.user.climbs.color,climbsCtrl.user.climbs.rating)">
+       <div class="ui one column grid basic segment">
+         <div class="column">
+           <div class="ui blue stacked segment">
+               <!-- form here -->
+               <div class="ui form">
+                 <div class="field">
+                   <label>Section</label>
+                   <select name="section" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.section">
+                     <option value="Beginner">Wall 1</option>
+                     <option value="Intermediate">Wall 2</option>
+                     <option value="Advanced">Wall 3</option>
+                     <option value="Godlike">Wall 4</option>
+                   </select>
+                 </div>
+                 <div class="field">
+                   <label>Grade</label>
+                   <select name="grade" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.grade">
+                     <option value="V1">V1</option>
+                     <option value="V2">V2</option>
+                     <option value="V3">V3</option>
+                     <option value="V4">V4</option>
+                     <option value="V5">V5</option>
+                     <option value="V6">V6</option>
+                     <option value="V7">V7</option>
+                     <option value="V8">V8</option>
+                     <option value="V9">V9</option>
+                     <option value="V10">V10</option>
+                   </select>
+                 </div>
+                 <div class="field">
+                   <label>Color</label>
+                   <div class="ui left labeled icon input">
+                       <input placeholder="Color" type="text" class="form-control" ng-model="climbCtrl.user.climbs.color">
+                   </div>
+                 </div>
+                 <div class="field">
+                   <label> Rating</label>
+                   <select name="rating" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.rating">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+
+                   </select>
+                 </div>
+
+
+
+                <button class="ui red submit button" type="submit">
+                     <span>Log Climb</span>
+                 </button>
+
+               </div>
+           </div>
+         </div>
+     </div>
+   </form>
