@@ -9,7 +9,7 @@ authFactory.$inject = ['$http', '$q', 'authTokenFactory']
 function authFactory($http, $q, authTokenFactory){
 
 	var authFactory = {}
-	var userObj
+	// var userData
 	// var user_id
 
 	authFactory.index = function(){
@@ -22,7 +22,7 @@ function authFactory($http, $q, authTokenFactory){
 			password: password
 		}).then(function(response){
 			authTokenFactory.setToken(response.data.token)
-			// localStorage.setItem('userData',response.data.user)
+			localStorage.setItem('userData',JSON.stringify(response.data.user))
 			console.log('this is the user object:',response.data.user )
 			// user_id = response.data.user._id
 			userObj = response.data.user
@@ -45,14 +45,18 @@ function authFactory($http, $q, authTokenFactory){
 	}
 
 	authFactory.createClimb = function(climb){
-		return $http.post('/api/users/' + userObj._id, climb)
+		var userData = localStorage.getItem('userData')
+		userData = JSON.parse( userData )
+		return $http.post('/api/users/' + userData._id, climb)
 	}
 
 
 	authFactory.updateUser = function(name,email,password,experience,gyms){
-		console.log('SOMEHOW BUT HOW');
+		console.log('SOMEHOW BUT HOW')
+		var userData = localStorage.getItem('userData')
+		userData = JSON.parse( userData )
 		if(authTokenFactory.getToken()){
-				return $http.put('/api/users/' + userObj._id, {
+				return $http.put('/api/users/' + userData._id, {
 				name: name,
 				email: email,
 				password: password,
@@ -68,7 +72,7 @@ function authFactory($http, $q, authTokenFactory){
 	authFactory.logout = function(){
 		console.log('logout hitting factory')
 		localStorage.removeItem('token')
-		// localStorage.removeItem('userData')
+		localStorage.removeItem('userData')
 	}
 
 	// check if a user is logged in
@@ -82,13 +86,14 @@ function authFactory($http, $q, authTokenFactory){
 
 	// get that user's info
 	authFactory.getUser = function(){
-		// var userData = localStorage.getItem('userData')
-		// userData = JSON.parse( userData )
+		var userData = localStorage.getItem('userData')
+		userData = JSON.parse( userData )
 		if(authTokenFactory.getToken()){
 			console.log('get user authfactory function hitting')
 			// console.log(user_id)
 			// console.log( '/api/users/'+ user_id)
-			return $http.get('/api/users/' + userObj._id)
+			return $http.get('/api/users/' + userData._id)
+			// return $http.get('/api/users/' + userObj._id)
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
@@ -105,7 +110,7 @@ function authTokenFactory($window){
 		return $window.localStorage.getItem('token')
 	}
 	// set the token
-	authTokenFactory.setToken = function( token ){
+	authTokenFactory.setToken = function( token){
 		if(token){
 			$window.localStorage.setItem('token', token)
 			// $window.localStorage.setItem('userData', userData)

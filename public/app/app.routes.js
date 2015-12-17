@@ -51,5 +51,6 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			url: '/climbroutes',
 			templateUrl: '../templates/my-routes.html',
 			controller: 'climbController as climbCtrl'
+			
 		})
 }
