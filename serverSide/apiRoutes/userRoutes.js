@@ -55,7 +55,8 @@ apiRouter.route('/authenticate')
 				// var user  = user
 				var token = jwt.sign({
 					name: user.name,
-					email: user.email
+					email: user.email,
+					id: user._id
 				}, superSecret, {
 					expiresInMinutes: 1440
 				})
@@ -113,9 +114,8 @@ apiRouter.route('/me')
 //update or delete current user route
 apiRouter.route('/users/:user_id')
 	.get(usersController.show)
-	.post( climbsController.create )
+	.post(climbsController.create)
 	.put(usersController.update)
-
 	.delete(usersController.destroy)
 
 

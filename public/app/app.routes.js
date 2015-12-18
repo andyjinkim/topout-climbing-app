@@ -9,6 +9,11 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
+    .state('update', {
+      url: '/update',
+      templateUrl: '../templates/user-update.html',
+      controller: 'MainController as mainCtrl'
+    })
 		.state('loggedout', {
 			url: '/logout',
 			templateUrl: '../templates/welcome.html',
@@ -19,11 +24,6 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '../templates/signup.html',
 			controller: 'MainController as mainCtrl'
 		})
-    .state('update', {
-      url: '/update',
-      templateUrl: '../templates/user-update.html',
-      controller: 'MainController as mainCtrl'
-    })
 		.state('login', {
 			url: '/login',
 			templateUrl: '../templates/login.html',
@@ -50,7 +50,7 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 			url: '/climbroutes',
 			templateUrl: '../templates/my-routes.html',
 			controller: 'climbController as climbCtrl'
-			
+
 		})
     // $locationProvider.html5Mode(true)
 }

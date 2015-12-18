@@ -30,8 +30,20 @@ function authFactory($http, $q, authTokenFactory){
 		})
 	}
 
+	authFactory.updateUser = function(user){
+		console.log('SOMEHOW BUT HOW')
+		if(authTokenFactory.getToken()){
+			// var userData = JSON.parse(localStorage.getItem('userData'))
+			// userData = JSON.parse( userData )
+			console.log('token available for update')
+				return $http.put('/api/users/' + user._id, user)
+		} else {
+			return $q.reject({message: 'User has no token'})
+		}
+	}
+
 	authFactory.signup = function(name,email,password,experience,gyms){
-		return $http.post( '/api/users', {
+		return $http.post('/api/users', {
 			name: name,
 			email: email,
 			password: password,
@@ -48,24 +60,6 @@ function authFactory($http, $q, authTokenFactory){
 		var userData = localStorage.getItem('userData')
 		userData = JSON.parse( userData )
 		return $http.post('/api/users/' + userData._id, climb)
-	}
-
-
-	authFactory.updateUser = function(name,email,password,experience,gyms){
-		console.log('SOMEHOW BUT HOW')
-		var userData = localStorage.getItem('userData')
-		userData = JSON.parse( userData )
-		if(authTokenFactory.getToken()){
-				return $http.put('/api/users/' + userData._id, {
-				name: name,
-				email: email,
-				password: password,
-				experience: experience,
-				gyms: gyms
-			})
-		} else {
-			return $q.reject({message: 'User has no token'})
-		}
 	}
 
 	// handle logout
@@ -92,12 +86,7 @@ function authFactory($http, $q, authTokenFactory){
 			console.log('getting Token')
 			// console.log(user_id)
 			// console.log( '/api/users/'+ user_id)
-<<<<<<< HEAD
 			return $http.get('/api/me')
-=======
-			return $http.get('/api/users/' + userData._id)
-			// return $http.get('/api/users/' + userObj._id)
->>>>>>> 968169b002a983796af08e7cf0610e082359da4b
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
