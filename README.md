@@ -17,8 +17,14 @@ Heroku link: https://hidden-plains-1055.herokuapp.com/#/
 The quickest way to get started using the app is to visit https://hidden-plains-1055.herokuapp.com/#/ and sign up.From there you can begin tracking your climbs. See the screen shots below for an idea of the site layout!
 
 ![alt text](screenshots/landingscreen.png "Landing Page")
+
+
 ![alt text](screenshots/login screen.png "Login Page")
+
+
 ![alt text](screenshots/profilepage.png "Profile Page")
+
+
 ![alt text](screenshots/trackclimb screen.png "Climb Tracker Page")
 
 ### Challenges
