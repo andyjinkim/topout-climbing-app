@@ -20,12 +20,13 @@ console.log('climb controller hit')
 		}
 		authFactory.createClimb(climb)
 		.then(function(response){
-			
+
 			if(response.data.success){
 				console.log( "RES", response )
 				console.log('response data:',response.data)
 				vm.climb = {}
 			} else {
+				console.log('climb creation did not work')
 				vm.error = response.data.message
 			}
 		})
