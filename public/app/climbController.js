@@ -11,13 +11,14 @@ function climbController($state, authFactory, $rootScope){
 console.log('climb controller hit')
 
 	vm.createClimb = function(section,grade,color,rating){
-		console.log(vm.user)
+		
 		var climb = {
 			section:section,
 			grade:grade,
 			color:color,
 			rating:rating
 		}
+		console.log(climb)
 		authFactory.createClimb(climb)
 		.then(function(response){
 			

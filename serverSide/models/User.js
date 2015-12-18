@@ -12,7 +12,7 @@ var climbSchema = new Schema({
 	section: String,
 	grade: String,
 	color: String,
-	rating: Number
+	rating: String
 })
 
 /************************/
@@ -29,6 +29,7 @@ var UserSchema = new Schema({
 	followers: [],
 	following: [],
 	climbs: [ climbSchema ],
+	// image: 
 	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
 	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
 	gyms: String
