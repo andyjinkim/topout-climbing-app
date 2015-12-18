@@ -6,7 +6,7 @@ var jwt         = require('jsonwebtoken')
 var	superSecret = 'project4'
 var usersController = require('../controllers/usersController')
 var gymController = require('../controllers/gymController')
-var climbsController = require( '../controllers/climbController')
+var climbController = require( '../controllers/climbController')
 
 apiRouter.get('/', function(req,res){
 	res.json({message: "Api routes are working."})
@@ -56,7 +56,9 @@ apiRouter.route('/authenticate')
 				var token = jwt.sign({
 					name: user.name,
 					email: user.email,
-					id: user._id
+					id: user._id,
+					gyms: user.gyms,
+					climbs: user.climbs
 				}, superSecret, {
 					expiresInMinutes: 1440
 				})
@@ -114,7 +116,7 @@ apiRouter.route('/me')
 //update or delete current user route
 apiRouter.route('/users/:user_id')
 	.get(usersController.show)
-	.post(climbsController.create)
+	.post(climbController.create)
 	.put(usersController.update)
 	.delete(usersController.destroy)
 
