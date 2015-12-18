@@ -1,10 +1,16 @@
 <div ng-init="mainCtrl.getUser()"></div>
+
+<img class="ui medium circular image" src="../assets/images/santiclimb.jpg">
 <h1 style="margin-top: 75px;">Name: {{mainCtrl.user.name}}</h1>
 <h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
 <h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms}}</h1>
 
 
 <table class="ui celled table">
+  <h2 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+ My Climbs
+</h2>
   <thead>
     <tr><th>Gym Section</th>
     <th>Grade</th>
@@ -22,9 +28,13 @@
   </tbody>
 </table>
 
+<h2 class="ui center aligned icon header">
+<i class="circular users icon"></i>
+ Gym Challenges
+</h2>
 <table class="ui celled table">
   <thead>
-    <tr><th>Challenge Name</th>
+    <tr><th>Challenge</th>
     <th>Description</th>
     <th>Status</th>
     <th>Points</th>
@@ -34,31 +44,17 @@
     <tr="climb in mainCtrl.user.climbs">
       <td>Climbing Machine</td>
       <td>Climb all the routes in the gym</td>
-      <td>Incomplete</td>
+      <td class="challenge-status">Incomplete</td>
       <td>Points</td>
     </tr>
 
   </tbody>
 </table>
 
-
-
-<tbody>
-  <tr="climb in mainCtrl.user.climbs">
-    <td>Climbing Machine</td>
-    <td>Climb all the routes in the gym</td>
-    <td>Incomplete</td>
-    <td>Points</td>
-  </tr>
-
-</tbody>
-</table>
-
-<div class="ui progress" data-value= "0" data-total="2" id="example6">
+<div class="ui indicating progress" data-value= "0" data-total="20" id="example6">
   <div class="bar">
     <div class="progress"></div>
   </div>
 </div>
-
 
 <!-- <div class="barchart"></div> -->
