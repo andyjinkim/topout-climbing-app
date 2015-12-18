@@ -22,7 +22,7 @@ console.log('climb controller hit')
 		.then(function(response){
 			if(response.data.message){
 				console.log('omg if this works', response.data)
-				// vm.climb = {}
+				vm.climb = {}
 			} else {
 				console.log('sign up did not work', response.data)
 				vm.error = response.data.message
