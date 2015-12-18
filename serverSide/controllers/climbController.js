@@ -24,7 +24,9 @@ function create(req, res){
               if ( err ) {
                 res.json( err )
               } else {
+                console.log('hhhehlehecalcelacelkac ;kne')
                 res.json( { message: "Success!", user: user } )
+
               }
             } )
         } else {
