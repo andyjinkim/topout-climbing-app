@@ -1,7 +1,7 @@
 angular.module('topOutRouter', ['ui.router'])
-  .config(['$stateProvider', '$urlRouterProvider', MainRouter])
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', MainRouter])
   .run(['$state', function ($state) {}])
-function MainRouter($stateProvider, $urlRouterProvider){
+function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$stateProvider
 		.state('home', {
@@ -9,6 +9,11 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
+    .state('update', {
+      url: '/update',
+      templateUrl: '../templates/user-update.html',
+      controller: 'MainController as mainCtrl'
+    })
 		.state('loggedout', {
 			url: '/logout',
 			templateUrl: '../templates/welcome.html',
@@ -19,11 +24,6 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/signup.html',
 			controller: 'MainController as mainCtrl'
 		})
-    .state('update', {
-      url: '/update',
-      templateUrl: '../templates/user-update.html',
-      controller: 'MainController as mainCtrl'
-    })
 		.state('login', {
 			url: '/login',
 			templateUrl: '../templates/login.html',
@@ -34,7 +34,7 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/user-home.html',
 			controller: 'MainController as mainCtrl'
 		})
-		
+
 		.state('user-profile', {
 			url: '/user-profile',
 			templateUrl: '../templates/user-profile.html',
@@ -45,12 +45,12 @@ function MainRouter($stateProvider, $urlRouterProvider){
 			templateUrl: '../templates/news-feed.html',
 			controller: 'MainController as mainCtrl'
 		})
-
 		//make sure to add edit user state!!
 		.state('climbroutes', {
 			url: '/climbroutes',
 			templateUrl: '../templates/my-routes.html',
 			controller: 'climbController as climbCtrl'
-			
+
 		})
+    // $locationProvider.html5Mode(true)
 }
