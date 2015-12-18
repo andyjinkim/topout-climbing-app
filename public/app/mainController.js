@@ -34,6 +34,25 @@ function MainController($state, authFactory, $rootScope){
 			// console.log("GETUSER RESPONSE =====",response)
 			vm.user = response.data
 
+			//for the progress bar
+			// $('#example6')
+			//   .progress({
+			//     label: 'ratio',
+			//     text: {
+			//       ratio: 'vm.user.climbs.length de {total}' 
+			//     }
+			//   })
+			$('#example6')
+			.progress({
+				value: vm.user.climbs.length
+			})
+			parseInt("10")
+			console.log(vm.user.climbs)
+			var grades = []
+
+			grades = vm.user.climbs.map(function(climb){return parseInt(climb.grade.slice(1))})
+			console.log(grades)
+
 		})
 	}
 
