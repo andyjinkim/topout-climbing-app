@@ -9,10 +9,10 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: '../templates/welcome.html',
 			controller: 'MainController as mainCtrl'
 		})
-    .state('update', {
-      url: '/update',
-      templateUrl: '../templates/user-update.html',
-      controller: 'MainController as mainCtrl'
+	    .state('update', {
+	      url: '/update',
+	      templateUrl: '../templates/user-update.html',
+	      controller: 'MainController as mainCtrl'
     })
 		.state('loggedout', {
 			url: '/logout',
