@@ -1,15 +1,23 @@
 <div ng-init="mainCtrl.getUser()"></div>
-<<<<<<< HEAD
-<h1 style="margin-top: 75px;">Name: {{mainCtrl.user._id}}</h1>
-<h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
-<h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms[0]}}</h1>
-=======
-<div <img class="ui medium circular image" src={{mainCtrl.user.image}}>></div>
+<!-- <div <img class="ui medium circular image" src={{mainCtrl.user.image}}>></div> -->
 <h1 style="margin-top: 75px;">Name: {{mainCtrl.user.name}}</h1>
 <h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
 <h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms}}</h1>
 <!-- <button ng-click="mainCtrl.getUser()">Get user object</button> -->
->>>>>>> ba7d19e17b1bd5b9cbb5b6b73ccd1ad8a2920678
-
-
-<!-- <button ng-click="mainCtrl.getUser()">Get user object</button> -->
+<table class="ui celled table">
+  <thead>
+    <tr><th>Gym Section</th>
+    <th>Grade</th>
+    <th>Color</th>
+    <th>Rating</th>
+    <!-- <th>Date</th> -->
+  </tr></thead>
+  <tbody>
+    <tr ng-repeat="climb in mainCtrl.user.climbs">
+      <td>{{climb.section}}</td>
+      <td>{{climb.grade}}</td>
+      <td>{{climb.color}}</td>
+      <td>{{climb.rating}}</td>
+    </tr>
+  </tbody>
+</table>
