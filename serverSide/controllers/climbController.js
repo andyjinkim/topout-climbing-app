@@ -12,6 +12,7 @@ function index(req, res){
 function create(req, res){
   console.log("REQ", req.body, req.decoded);
    if ( req.body ) {
+    
      var newClimb = new Climb( req.body )
      User.findOne( { email: req.decoded.email } )
       .exec( function( err, user ) {
