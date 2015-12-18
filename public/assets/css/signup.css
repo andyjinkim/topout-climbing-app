@@ -1,7 +1,7 @@
-body, .ui.vertical.divider {
+body{
   color: #696969;
   background: url(http://gearjunkie.com/legacy/images/17525.jpg) no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 .ui.vertical.divider {
@@ -20,11 +20,11 @@ body, .ui.vertical.divider {
 
 .ui.raised.segment {
   background-color: #2185D0;
-  width: 600px;
+  width: 80%;
   margin-top: 0;
-  position: fixed;
-  left: 10px;
-  top: 10px;
+  /*position: fixed;*/
+  /*left: 10px;*/
+  /*top: 10px;*/
 }
 
 .footer {

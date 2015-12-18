@@ -1,18 +1,23 @@
-<div class="container">
-
-    <div ng-init="mainCtrl.getUser()"></div>
-
-    <!-- <img class="ui medium circular image" src="../assets/images/santiclimb.jpg"> -->
-    <h1 style="margin-top: 75px;">Name: {{mainCtrl.user.name}}</h1>
-    <h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
-    <h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms}}</h1>
+ <div ng-init="mainCtrl.getUser()"></div>
 
 
-    <table class="ui celled table">
-      <h2 class="ui center aligned icon header">
-      <i class="circular users icon"></i>
-     My Climbs
+  <div class="ui blue raised segment">
+    <h2 class="ui small left floated image" >
+      <img src="../assets/images/santi.png" class="ui rounded image">
     </h2>
+
+    <h3>{{mainCtrl.user.name}}</h3>
+    <h3>Email: {{mainCtrl.user.email}}</h3>
+    <h3>Gym: {{mainCtrl.user.gyms}}</h3>
+  </div>
+
+
+  <div class="ui blue raised segment">
+    <h2 class="ui center aligned icon header">
+      <img src="../assets/images/myclimbs.png" class="ui circular bordered image">
+        My Climbs
+    </h2>
+    <table class="ui celled table">
       <thead>
         <tr><th>Gym Section</th>
         <th>Grade</th>
@@ -29,10 +34,14 @@
         </tr>
       </tbody>
     </table>
+  </div>
 
+
+
+  <div class="ui blue raised segment">
     <h2 class="ui center aligned icon header">
-    <i class="circular users icon"></i>
-     Gym Challenges
+    <img src="../assets/images/challenges1.png" class=" ui circular bordered image">
+     Challenges
     </h2>
     <table class="ui celled table">
       <thead>
@@ -43,10 +52,11 @@
         <!-- <th>Date</th> -->
       </tr></thead>
 
-      <div class="ui indicating progress" data-value= "0" data-total="20" id="example6">
+      <div class="ui indicating large progress" data-value= "0" data-total="20" id="example6">
+        <div class="label">Completion Status</div>
       <div class="bar">
         <div class="progress"></div>
-      </div>
+       </div>
     </div>
 
       <tbody>
@@ -59,11 +69,6 @@
 
       </tbody>
     </table>
-    <div>
-
-
-    </div>
-
-</div>
+  </div>
 
     <!-- <div class="barchart"></div> -->
