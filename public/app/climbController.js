@@ -11,7 +11,7 @@ function climbController($state, authFactory, $rootScope){
 console.log('climb controller hit')
 
 	vm.createClimb = function(section,grade,color,rating){
-		
+
 		var climb = {
 			section:section,
 			grade:grade,
@@ -27,7 +27,6 @@ console.log('climb controller hit')
 				console.log('response data:',response.data)
 				vm.climb = {}
 			} else {
-				console.log('climb creation did not work')
 				vm.error = response.data.message
 			}
 		})

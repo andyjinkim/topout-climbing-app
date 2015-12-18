@@ -56,7 +56,9 @@ apiRouter.route('/authenticate')
 				var token = jwt.sign({
 					name: user.name,
 					email: user.email,
-					id: user._id
+					id: user._id,
+					gyms: user.gyms,
+					climb: user.climbs
 				}, superSecret, {
 					expiresInMinutes: 1440
 				})
