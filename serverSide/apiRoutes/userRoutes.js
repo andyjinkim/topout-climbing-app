@@ -6,7 +6,7 @@ var jwt         = require('jsonwebtoken')
 var	superSecret = 'project4'
 var usersController = require('../controllers/usersController')
 var gymController = require('../controllers/gymController')
-var climbsController = require( '../controllers/climbController')
+var climbsController = require( '../controllers/climbsController')
 
 apiRouter.get('/', function(req,res){
 	res.json({message: "Api routes are working."})
@@ -58,7 +58,7 @@ apiRouter.route('/authenticate')
 					email: user.email,
 					id: user._id,
 					gyms: user.gyms,
-					climb: user.climbs
+					climbs: user.climbs
 				}, superSecret, {
 					expiresInMinutes: 1440
 				})

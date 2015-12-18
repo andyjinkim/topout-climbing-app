@@ -29,7 +29,7 @@ var UserSchema = new Schema({
 	followers: [],
 	following: [],
 	climbs: [ climbSchema ],
-	// image: 
+	// image:
 	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
 	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
 	gyms: String
