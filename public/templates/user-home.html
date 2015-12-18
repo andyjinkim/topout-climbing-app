@@ -1,35 +1,53 @@
-<div ng-init="mainCtrl.getUser()"></div>
-<h1 style="margin-top: 75px;">Name: {{mainCtrl.user.name}}</h1>
-<h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
-<h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms}}</h1>
+
+  <div ng-init="mainCtrl.getUser()"></div>
+  <div styles="text-align:center" class="ui grid">
+
+    <div style="margin-top: 75px;" class="three wide column">Name: {{mainCtrl.user.name}}</div>
+    <div style="margin-top: 75px;" class="three wide column">Email: {{mainCtrl.user.email}}</div>
+    <div style="margin-top: 75px;" class="three wide column">Gym: {{mainCtrl.user.gyms}}</div>
+
+  </div>
+
+<div class="ui page grid">
+  <table class="ui celled table">
+    <thead>
+      <tr><th>Gym Section</th>
+      <th>Grade</th>
+      <th>Color</th>
+      <th>Rating</th>
+      <!-- <th>Date</th> -->
+    </tr></thead>
+    <tbody>
+      <tr ng-repeat="climb in mainCtrl.user.climbs">
+        <td>{{climb.section}}</td>
+        <td>{{climb.grade}}</td>
+        <td>{{climb.color}}</td>
+        <td>{{climb.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="ui celled table">
+    <thead>
+      <tr><th>Challenge Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Points</th>
+      <!-- <th>Date</th> -->
+    </tr></thead>
+    <tbody>
+      <tr="climb in mainCtrl.user.climbs">
+        <td>Climbing Machine</td>
+        <td>Climb all the routes in the gym</td>
+        <td>Incomplete</td>
+        <td>Points</td>
+      </tr>
+
+    </tbody>
+  </table>
 
 
-<table class="ui celled table">
-  <thead>
-    <tr><th>Gym Section</th>
-    <th>Grade</th>
-    <th>Color</th>
-    <th>Rating</th>
-    <!-- <th>Date</th> -->
-  </tr></thead>
-  <tbody>
-    <tr ng-repeat="climb in mainCtrl.user.climbs">
-      <td>{{climb.section}}</td>
-      <td>{{climb.grade}}</td>
-      <td>{{climb.color}}</td>
-      <td>{{climb.rating}}</td>
-    </tr>
-  </tbody>
-</table>
 
-<table class="ui celled table">
-  <thead>
-    <tr><th>Challenge Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Points</th>
-    <!-- <th>Date</th> -->
-  </tr></thead>
   <tbody>
     <tr="climb in mainCtrl.user.climbs">
       <td>Climbing Machine</td>
@@ -39,26 +57,15 @@
     </tr>
 
   </tbody>
-</table>
+  </table>
 
-
-
-<tbody>
-  <tr="climb in mainCtrl.user.climbs">
-    <td>Climbing Machine</td>
-    <td>Climb all the routes in the gym</td>
-    <td>Incomplete</td>
-    <td>Points</td>
-  </tr>
-
-</tbody>
-</table>
-
-<div class="ui progress" data-value= "0" data-total="2" id="example6">
-  <div class="bar">
-    <div class="progress"></div>
+  <div class="ui progress" data-value= "0" data-total="2" id="example6">
+    <div class="bar">
+      <div class="progress"></div>
+    </div>
   </div>
+
+
+  <!-- <div class="barchart"></div> -->
+
 </div>
-
-
-<!-- <div class="barchart"></div> -->
