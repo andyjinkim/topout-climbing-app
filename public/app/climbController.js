@@ -3,6 +3,7 @@ angular.module('climbCtrl', [])
 
 climbController.$inject = ['$state', 'authFactory', '$rootScope']
 
+
 function climbController($state, authFactory, $rootScope){
 	var vm = this
 	var climbObj = {}
@@ -11,23 +12,21 @@ function climbController($state, authFactory, $rootScope){
 console.log('climb controller hit')
 
 	vm.createClimb = function(section,grade,color,rating){
-		
+		console.log(vm.user)
 		var climb = {
 			section:section,
 			grade:grade,
 			color:color,
 			rating:rating
 		}
-		console.log("climb",climb)
+
 		authFactory.createClimb(climb)
 		.then(function(response){
-
-			if(response.data.success){
-				console.log( "RES", response )
-				console.log('response data:',response.data)
+			if(response.data.message){
+				console.log('omg if this works', response.data)
 				vm.climb = {}
 			} else {
-				console.log('climb creation did not work')
+				console.log('sign up did not work', response.data)
 				vm.error = response.data.message
 			}
 		})

@@ -59,7 +59,9 @@ function authFactory($http, $q, authTokenFactory){
 	authFactory.createClimb = function(climb){
 		var userData = localStorage.getItem('userData')
 		userData = JSON.parse( userData )
-		return $http.post('/api/users/' + user._id, climb)
+
+		return $http.post('/api/users/' + userData._id, climb)
+		console.log('coming back to front end via authfactory createclimb')
 	}
 
 	// handle logout
