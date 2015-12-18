@@ -18,7 +18,7 @@ console.log('climb controller hit')
 			color:color,
 			rating:rating
 		}
-		console.log(climb)
+		console.log("climb",climb)
 		authFactory.createClimb(climb)
 		.then(function(response){
 

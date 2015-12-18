@@ -59,7 +59,7 @@ function authFactory($http, $q, authTokenFactory){
 	authFactory.createClimb = function(climb){
 		var userData = localStorage.getItem('userData')
 		userData = JSON.parse( userData )
-		return $http.post('/api/users/' + userData._id, climb)
+		return $http.post('/api/users/' + user._id, climb)
 	}
 
 	// handle logout
@@ -86,7 +86,7 @@ function authFactory($http, $q, authTokenFactory){
 			console.log('getting Token')
 			// console.log(user_id)
 			// console.log( '/api/users/'+ user_id)
-			return $http.get('/api/me')
+			return $http.get('/api/users/' + userData._id)
 		} else {
 			return $q.reject({message: 'User has no token'})
 		}
