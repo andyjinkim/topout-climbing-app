@@ -50,25 +50,24 @@ function show(req, res){
 
 function update(req, res){
 	// update a single user -- update
-	User.findById(req.params.user_id, function(err, user){
+	console.log('update in usercontroller hitting', req)
+	User.findById(req.decoded.id, function(err, user){
 
-		var climb = new Climb(req.body)
+		// var climb = new Climb(req.body)
 
 		if(err) res.send(err)
-
-		if (req.body.name) {
-			user.name = req.body.name
-		}
-		console.log('update in usersctrl hitting', req.body)
-		if(req.body.email) 		user.email 		= req.body.email
+		// var user = new User(req.body)
+console.log('update in usersctrl hitting', req.body)
+		if(req.body.name) 			user.name 			= req.body.name
+		if(req.body.email) 			user.email 			= req.body.email
 		if(req.body.password) 	user.password 	= req.body.password
 		if(req.body.experience) user.experience = req.body.experience
-		if(req.body.gyms) 		user.gyms 		= req.body.gyms
-		if(req.body.points) 	user.points 	= req.body.points
-		if(req.body.level) 		user.level 		= req.body.level
-		if(req.body.followers) 	user.followers 	= req.body.followers
-		if(req.body.following) 	user.following 	= req.body.following
-		if(req.body.climbs)		user.climbs		= climb
+		if(req.body.gyms) 			user.gyms 			= req.body.gyms
+		// if(req.body.points) 		user.points 		= req.body.points
+		// if(req.body.level) 			user.level 			= req.body.level
+		// if(req.body.followers) 	user.followers 	= req.body.followers
+		// if(req.body.following) 	user.following 	= req.body.following
+		// if(req.body.climbs)			user.climbs			= climb
 
 		user.save(function(err){
 			if(err) res.send(err)

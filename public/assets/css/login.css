@@ -1,5 +1,7 @@
-body, .ui.vertical.divider {
+body {
   color: #696969;
+  background: url(https://d1w5usc88actyi.cloudfront.net/wp-content/uploads/2013/09/Fstoppers-Kiliii-Fish-climbing-photo3.jpg) no-repeat;
+  background-size: cover;
 }
 
 .ui.vertical.divider {
@@ -13,9 +15,9 @@ body, .ui.vertical.divider {
 
 .ui.raised.segment {
   background-color: #2185D0;
-  width: 600px;
+  width: 70%;
   margin-top: 0;
-  position: fixed;
+  /*position: fixed;*/
   left: 10px;
   top: 10px;
 }

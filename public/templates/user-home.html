@@ -1,24 +1,74 @@
-<div ng-init="mainCtrl.getUser()"></div>
-<h1 style="margin-top: 75px;">Name: {{mainCtrl.user.name}}</h1>
-<h1 style="margin-top: 75px;">Email: {{mainCtrl.user.email}}</h1>
-<h1 style="margin-top: 75px;">Gym: {{mainCtrl.user.gyms[0]}}</h1>
-<!-- <button ng-click="mainCtrl.getUser()">Get user object</button> -->
+ <div ng-init="mainCtrl.getUser()"></div>
 
-<table class="ui celled table">
-  <thead>
-    <tr><th>Gym Section</th>
-    <th>Grade</th>
-    <th>Color</th>
-    <th>Rating</th>
-    <!-- <th>Date</th> -->
-  </tr></thead>
-  <tbody>
-    <tr ng-repeat="climb in mainCtrl.user.climbs">
-      <td>{{climb.section}}</td>
-      <td>{{climb.grade}}</td>
-      <td>{{climb.color}}</td>
-      <td>{{climb.rating}}</td>
-    </tr>
-  </tbody>
-</table>
 
+  <div class="ui blue raised segment">
+    <h2 class="ui small left floated image" >
+      <img src="../assets/images/santi.png" class="ui rounded image">
+    </h2>
+
+    <h3>Name: {{mainCtrl.user.name}}</h3>
+    <h3>Email: {{mainCtrl.user.email}}</h3>
+    <h3>Gym: {{mainCtrl.user.gyms}}</h3>
+  </div>
+
+
+  <div class="ui blue raised segment">
+    <h2 class="ui center aligned icon header">
+      <img src="../assets/images/myclimbs.png" class="ui circular bordered image">
+        My Climbs
+    </h2>
+    <table class="ui celled table">
+      <thead>
+        <tr><th>Gym Section</th>
+        <th>Grade</th>
+        <th>Color</th>
+        <th>Rating</th>
+        <!-- <th>Date</th> -->
+      </tr></thead>
+      <tbody>
+        <tr ng-repeat="climb in mainCtrl.user.climbs">
+          <td>{{climb.section}}</td>
+          <td>{{climb.grade}}</td>
+          <td>{{climb.color}}</td>
+          <td>{{climb.rating}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+  <div class="ui blue raised segment">
+    <h2 class="ui center aligned icon header">
+    <img src="../assets/images/challenges1.png" class=" ui circular bordered image">
+     Challenges
+    </h2>
+    <table class="ui celled table">
+      <thead>
+        <tr><th>Challenge</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Points</th>
+        <!-- <th>Date</th> -->
+      </tr></thead>
+
+      <div class="ui indicating large progress" data-value= "0" data-total="20" id="example6">
+        <div class="label">Completion Status</div>
+      <div class="bar">
+        <div class="progress"></div>
+       </div>
+    </div>
+
+      <tbody>
+        <tr="climb in mainCtrl.user.climbs">
+          <td>Climbing Machine</td>
+          <td>Climb 20 routes this week</td>
+          <td class="challenge-status">Incomplete</td>
+          <td>Points</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+    <!-- <div class="barchart"></div> -->

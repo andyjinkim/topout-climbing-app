@@ -21,8 +21,14 @@ html {
 
 }
 
+.people {
+    duration: 10000ms;
+    position: static;
+}
+
 #peacerock {
-  margin-bottom: 25px;
+  margin: 25px;
+
 }
 
 .ui.segment {

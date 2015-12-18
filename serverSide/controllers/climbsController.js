@@ -12,21 +12,23 @@ function index(req, res){
 function create(req, res){
   console.log("REQ", req.body, req.decoded);
    if ( req.body ) {
-    
+
      var newClimb = new Climb( req.body )
      User.findOne( { email: req.decoded.email } )
       .exec( function( err, user ) {
         if ( err ) {
+					console.log('first error')
           res.json( err )
         } else if ( user ){
+
           user.climbs.push( newClimb )
+					console.log('push happening')
           user.save( function( err, user ) {
               if ( err ) {
+								console.log('second error')
                 res.json( err )
               } else {
-                console.log('hhhehlehecalcelacelkac ;kne')
                 res.json( { message: "Success!", user: user } )
-
               }
             } )
         } else {

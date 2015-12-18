@@ -1,8 +1,9 @@
 <!-- <div ng-controller="MainController as mainCtrl" ng-init="mainCtrl.getUser()" ></div> -->
- <form ng-submit="climbCtrl.createClimb(climbCtrl.user.climbs.section,climbCtrl.user.climbs.grade,climbCtrl.user.climbs.color,climbsCtrl.user.climbs.rating)">
-       <div class="ui one column grid basic segment">
+ <form ng-submit="climbCtrl.createClimb(climbCtrl.user.climbs.section,climbCtrl.user.climbs.grade,climbCtrl.user.climbs.color,climbCtrl.user.climbs.rating)">
+       <div class="ui blue raised segment">
          <div class="column">
-           <div class="ui blue stacked segment">
+          <h2>Track My Climb</h2>
+           <div class="ui segment">
                <!-- form here -->
                <div class="ui form">
                  <div class="field">
@@ -38,11 +39,11 @@
                  <div class="field">
                    <label> Rating</label>
                    <select name="rating" class="ui fluid dropdown" ng-model="climbCtrl.user.climbs.rating">
-                     <option value=1>1</option>
-                     <option value=2>2</option>
-                     <option value=3>3</option>
-                     <option value=4>4</option>
-                     <option value=5>5</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
                    </select>
                  </div>
 

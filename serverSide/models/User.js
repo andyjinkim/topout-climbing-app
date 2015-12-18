@@ -12,7 +12,7 @@ var climbSchema = new Schema({
 	section: String,
 	grade: String,
 	color: String,
-	rating: Number
+	rating: String
 })
 
 /************************/
@@ -29,6 +29,7 @@ var UserSchema = new Schema({
 	followers: [],
 	following: [],
 	climbs: [ climbSchema ],
+	// image:
 	// compClimbs: [{type: Schema.Types.ObjectId, ref: "Climb" }],
 	// gyms: [{type: Schema.Types.ObjectId, ref: "Climb" }]
 	gyms: String
@@ -54,15 +55,15 @@ UserSchema.methods.comparePassword = function(password){
 	return bcrypt.compareSync(password,user.password)
 }
 
-// UserSchema.methods.completeClimb = function(climb){
-// 	var user = this
-// 	user.compClimbs.push(climb)
-// 	user.save
-// }
-// UserSchema.methods.addClimb = function(climb){
-// 	var climb = this
-// 	user.climbs.push(climb)
-// 	user.save
-// }
+UserSchema.methods.completeClimb = function(climb){
+	var user = this
+	user.compClimbs.push(climb)
+	user.save
+}
+UserSchema.methods.addClimb = function(climb){
+	var climb = this
+	user.climbs.push(climb)
+	user.save
+}
 //export user model to be used elsewhere
 module.exports = mongoose.model('User', UserSchema)

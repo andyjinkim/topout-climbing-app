@@ -6,7 +6,8 @@ var jwt         = require('jsonwebtoken')
 var	superSecret = 'project4'
 var usersController = require('../controllers/usersController')
 var gymController = require('../controllers/gymController')
-var climbsController = require( '../controllers/climbController')
+var climbsController = require( '../controllers/climbsController')
+
 
 apiRouter.get('/', function(req,res){
 	res.json({message: "Api routes are working."})
@@ -55,7 +56,10 @@ apiRouter.route('/authenticate')
 				// var user  = user
 				var token = jwt.sign({
 					name: user.name,
-					email: user.email
+					email: user.email,
+					id: user._id,
+					gyms: user.gyms,
+					climbs: user.climbs
 				}, superSecret, {
 					expiresInMinutes: 1440
 				})
@@ -107,15 +111,14 @@ apiRouter.route('/users')
 apiRouter.route('/me')
 	.get(function(req, res){
 		console.log(res)
-		res.json(req.decoded)
+		res.send(req.decoded)
 	})
 
 //update or delete current user route
 apiRouter.route('/users/:user_id')
 	.get(usersController.show)
-	.post( climbsController.create )
+	.post(climbsController.create)
 	.put(usersController.update)
-
 	.delete(usersController.destroy)
 
 
@@ -129,11 +132,11 @@ apiRouter.route('/gyms')
 	.get(gymController.index)
 
 //get current user route
-apiRouter.route('/me')
-	.get(function(req, res){
-		console.log(res)
-		res.json(req.decoded)
-	})
+// apiRouter.route('/me')
+// 	.get(function(req, res){
+// 		console.log(res)
+// 		res.json(req.decoded)
+// 	})
 
 //update or delete current user route
 apiRouter.route('/gyms/:gym_id')
