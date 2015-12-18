@@ -3,10 +3,10 @@ var Schema   = mongoose.Schema
 
 
 var climbSchema = new Schema({
-	section: String,
-	grade: String,
-	color: String,
-	rating: String
+	section: {type: String, required: true},
+	grade: {type: String, required: true},
+	color: {type: String, required: true},
+	rating: {type: String, required: true}
 })
 
 var Climb = mongoose.model('Climb', climbSchema)
