@@ -3,6 +3,7 @@ angular.module('climbCtrl', [])
 
 climbController.$inject = ['$state', 'authFactory', '$rootScope']
 
+
 function climbController($state, authFactory, $rootScope){
 	var vm = this
 	var climbObj = {}
