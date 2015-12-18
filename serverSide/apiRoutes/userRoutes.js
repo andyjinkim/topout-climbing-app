@@ -117,7 +117,7 @@ apiRouter.route('/me')
 //update or delete current user route
 apiRouter.route('/users/:user_id')
 	.get(usersController.show)
-	.post(climbController.create)
+	.post(climbsController.create)
 	.put(usersController.update)
 	.delete(usersController.destroy)
 
