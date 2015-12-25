@@ -6,7 +6,7 @@ function interceptor($httpProvider){
 	$httpProvider.interceptors.push('authInterceptorFactory')
 }
 
-  function navbar(){
+function navbar(){
   var directive = {
     restrict: 'EA',
     templateUrl: 'templates/nav-bar.html',
