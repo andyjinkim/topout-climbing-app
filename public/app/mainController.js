@@ -34,14 +34,6 @@ function MainController($state, authFactory, $rootScope){
 			// console.log("GETUSER RESPONSE =====",response)
 			vm.user = response.data
 
-			//for the progress bar
-			// $('#example6')
-			//   .progress({
-			//     label: 'ratio',
-			//     text: {
-			//       ratio: 'vm.user.climbs.length de {total}' 
-			//     }
-			//   })
 			$('#example6')
 			.progress({
 				value: vm.user.climbs.length

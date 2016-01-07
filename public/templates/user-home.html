@@ -19,12 +19,14 @@
     </h2>
     <table class="ui celled table">
       <thead>
-        <tr><th>Gym Section</th>
+        <tr>
+        <th>Gym Section</th>
         <th>Grade</th>
         <th>Color</th>
         <th>Rating</th>
         <!-- <th>Date</th> -->
-      </tr></thead>
+       </tr>
+      </thead>
       <tbody>
         <tr ng-repeat="climb in mainCtrl.user.climbs">
           <td>{{climb.section}}</td>
@@ -43,7 +45,7 @@
     <img src="../assets/images/challenges1.png" class=" ui circular bordered image">
      Challenges
     </h2>
-    <table class="ui celled table">
+    <table class="ui unstackable celled table">
       <thead>
         <tr><th>Challenge</th>
         <th>Description</th>
