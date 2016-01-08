@@ -1,92 +1,11 @@
-<<<<<<< HEAD
- <div ng-init="mainCtrl.getUser()"></div>
-
-
-  <div class="ui blue raised segment">
-    <h2 class="ui small left floated image" >
-      <img src="../assets/images/santi.png" class="ui rounded image">
-    </h2>
-
-    <h3>Name: {{mainCtrl.user.name}}</h3>
-    <h3>Email: {{mainCtrl.user.email}}</h3>
-    <h3>Gym: {{mainCtrl.user.gyms}}</h3>
-  </div>
-
-
-  <div class="ui blue raised segment">
-    <h2 class="ui center aligned icon header">
-      <img src="../assets/images/myclimbs.png" class="ui circular bordered image">
-        My Climbs
-    </h2>
-    <table class="ui celled table">
-      <thead>
-        <tr>
-        <th>Gym Section</th>
-        <th>Grade</th>
-        <th>Color</th>
-        <th>Rating</th>
-        <!-- <th>Date</th> -->
-       </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="climb in mainCtrl.user.climbs">
-          <td>{{climb.section}}</td>
-          <td>{{climb.grade}}</td>
-          <td>{{climb.color}}</td>
-          <td>{{climb.rating}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
-
-  <div class="ui blue raised segment">
-    <h2 class="ui center aligned icon header">
-    <img src="../assets/images/challenges1.png" class=" ui circular bordered image">
-     Challenges
-    </h2>
-    <table class="ui unstackable celled table">
-      <thead>
-        <tr><th>Challenge</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Points</th>
-        <!-- <th>Date</th> -->
-      </tr></thead>
-
-      <div class="ui indicating large progress" data-value= "0" data-total="20" id="example6">
-        <div class="label">Completion Status</div>
-      <div class="bar">
-        <div class="progress"></div>
-       </div>
-    </div>
-
-      <tbody>
-        <tr="climb in mainCtrl.user.climbs">
-          <td>Climbing Machine</td>
-          <td>Climb 20 routes this week</td>
-          <td class="challenge-status">Incomplete</td>
-          <td>Points</td>
-        </tr>
-
-      </tbody>
-    </table>
-  </div>
-=======
 <div ng-init="mainCtrl.getUser()"></div>
 
-
- <div class="ui blue raised segment">
-   <h2 class="ui small left floated image" >
-     <img src="../assets/images/santi.png" class="ui rounded image">
-   </h2>
-
-   <h3>Name: {{mainCtrl.user.name}}</h3>
-   <h3>Email: {{mainCtrl.user.email}}</h3>
-   <h3>Gym: {{mainCtrl.user.gyms}}</h3>
- </div>
-
+ <div class="ui center aligned header">{{mainCtrl.user.name}} Profile Page</div>
+ <img src="../assets/images/santi.png" class="ui small circular centered image">
+   
+  
+   <!-- <h3>Email: {{mainCtrl.user.email}}</h3>
+   <h3>Gym: {{mainCtrl.user.gyms}}</h3> -->
 
  <div class="ui blue raised segment">
    <h2 class="ui center aligned icon header">
@@ -110,6 +29,10 @@
        </tr>
      </tbody>
    </table>
+ </div>
+
+ <div class="ui blue raised segment">
+  <div id="chart"></div>
  </div>
 
 
@@ -136,7 +59,7 @@
          <td>Climbing Machine</td>
          <td>Climb 100 routes this week</td>
          <td class="challenge-status">Incomplete</td>
-         <td>Points</td>
+         <td>50 pts</td>
          <td>
                <div class="ui indicating small progress" data-value= "0" data-total="100" id="example6">
                <div class="label"></div>
@@ -154,7 +77,7 @@
          <td>V2 Crusher</td>
          <td>Climb 10 V2's this week </td>
          <td class="challenge-status">Incomplete</td>
-         <td>Points</td>
+         <td>20 pts</td>
          <td>  <div class="ui indicating small progress" data-value= "0" data-total="20" id="V2challenge">
 
                  <div class="bar">
@@ -167,7 +90,7 @@
      </tbody>
    </table>
  </div>
-  <div id="chart"></div>
->>>>>>> 246edeabace77cc80eab7a517f8a2d0c39ea27dd
+
+
 
     <!-- <div class="barchart"></div> -->
