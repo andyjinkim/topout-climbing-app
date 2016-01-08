@@ -2,10 +2,10 @@
 
 topOut is a MEAN stack web application built for climbers and the gyms they belong to.  The app allows the user to track their climb history, gain points for completing challenges and find other local climbers.
 
-Heroku link: https://hidden-plains-1055.herokuapp.com/#/
+Heroku link: https://topout-app.herokuapp.com/#/
 
 ### Technologies Used:
-* MongoDB 
+* MongoDB
 * Express
 * Angular
 * Node
@@ -28,7 +28,7 @@ The quickest way to get started using the app is to visit https://hidden-plains-
 ![alt text](screenshots/trackclimb screen.png "Climb Tracker Page")
 
 ### Challenges
-A main challenge of this project was overscoping.  With minimal experience building MEAN Stack Apps it was difficult to know where speedbumps would arise.  We had difficulty implementing authentication as well as seperating our concerns while coding.  Too much time was spent debugging minor issues causing us to have to drastically cut back the functionality we were hoping for. 
+A main challenge of this project was overscoping.  With minimal experience building MEAN Stack Apps it was difficult to know where speedbumps would arise.  We had difficulty implementing authentication as well as seperating our concerns while coding.  Too much time was spent debugging minor issues causing us to have to drastically cut back the functionality we were hoping for.
 
 ### What's Next
 * Build out the ability for a gym to sign in and log the routes that are currently set at their location
