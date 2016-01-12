@@ -1,14 +1,33 @@
 <head>
-
-
   <link rel="stylesheet" type="text/css" href="../assets/css/homepage.css">
   <link rel="stylesheet" type="text/css" href="../assets/iconfonts/flaticon.css">
-
+ <!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="../assets/css/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="../assets/css/owl.theme.css">
+ 
+ 
+<!-- Include js plugin -->
+<script src="../assets/js/owl.carousel.js"></script>
   <script src="../assets/js/homepage.js"></script>
+  
 
 </head>
 
 <body id="home">
+
+<div id="owl-demo" class="owl-carousel owl-theme">
+ 
+  <div class="item imageContainer1"><h1>Text for the about </h1></div>
+  <div class="item imageContainer2"><h1>Text for the about </h1></div>
+  <div class="item imageContainer3"><h1>Text for the about </h1></div>
+  <div class="item imageContainer4"><h1>Text for the about </h1></div>
+ 
+</div>
+
+   
+
 
   <div class="ui inverted masthead centered raised segment" style="margin-top:20px;">
     <div class="imagebackground" style="background-color:#2185D0">
@@ -231,4 +250,24 @@
     </div>
   </div>
 
+<script>
+ $(document).ready(function() {
+ 
+  $("#owl-demo").owlCarousel({
+ 
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true,
+      autoWidth:true,
+      margin:10
+ 
+  });
+ 
+});
+</script>
+
 </body>
+
+  
+
