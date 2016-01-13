@@ -195,11 +195,11 @@ function MainController($state, authFactory, $rootScope){
 			}
 		})
 	}
-
 }
 
 socket.on('connect', function(){
   console.log('connected!')
+	console.log(data.text)
 })
 
 socket.on('tweets', function(tweet){

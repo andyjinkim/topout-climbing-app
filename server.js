@@ -25,14 +25,15 @@ var twitter = new Twit({
 })
 
 var stream
-var searchTerm = 'rock climbing'
 
 io.on('connection', function(socket){
   console.log('twitter stream connected')
-  stream = twitter.stream('statuses/filter', { track: searchTerm })
+  stream = twitter.stream('statuses/filter', { track: 'bieber' })
   socket.on('tweet', function(tweet){
+    console.log('tweet')
     var data = {}
     console.log('twitter stream')
+    console.log(tweet.text)
     data.text = tweet.text
     socket.emit('tweets', data)
   })
