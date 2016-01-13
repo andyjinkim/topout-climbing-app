@@ -1,35 +1,37 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../assets/css/homepage.css">
-  <link rel="stylesheet" type="text/css" href="../assets/iconfonts/flaticon.css">
+
  <!-- Important Owl stylesheet -->
 <link rel="stylesheet" href="../assets/css/owl.carousel.css">
- 
+
 <!-- Default Theme -->
 <link rel="stylesheet" href="../assets/css/owl.theme.css">
- 
- 
+
+
 <!-- Include js plugin -->
 <script src="../assets/js/owl.carousel.js"></script>
   <script src="../assets/js/homepage.js"></script>
-  
+
 
 </head>
 
 <body id="home">
 
-<div id="owl-demo" class="owl-carousel owl-theme">
- 
-  <div class="item imageContainer1"><h1>Text for the about </h1></div>
-  <div class="item imageContainer2"><h1>Text for the about </h1></div>
-  <div class="item imageContainer3"><h1>Text for the about </h1></div>
-  <div class="item imageContainer4"><h1>Text for the about </h1></div>
- 
+
+<div id="owl-demo" class="owl-carousel owl-theme" style="margin-bottom:10px">
+
+  <div class="item"><img src="../assets/images/slide1v2.png" alt="Slider image1" /></div>
+  <div class="item"><img src="../assets/images/slide2v2.png" alt="Slider image1" /></div>
+  <div class="item"><img src="../assets/images/slide3v2.png" alt="Slider image1" /></div>
+  <div class="item"><img src="../assets/images/slide4v2.png" alt="Slider image1" /></div>
+
 </div>
 
-   
 
 
-  <div class="ui inverted masthead centered raised segment" style="margin-top:20px;">
+
+
+  <!-- <div class="ui inverted masthead centered raised segment" style="margin-top:20px;">
     <div class="imagebackground" style="background-color:#2185D0">
       <div class="ui page grid">
         <div class="column">
@@ -39,23 +41,28 @@
             </h1>
             <p class="ui inverted centered lead">A new kind of app thats lets you track your progress
               <br/>while making new friends at your local climbing gym.</p>
-          <div class="ui one column stackable center aligned page grid">  <a href="/#/signup" class="large basic inverted animated fade ui button">
-
-         <div class="visible content">Try it Now</div>
-            <div class="hidden content">Register Now</div>
-            </a>
-            </div>
-
-              <img class="ui centered image" src="../assets/images/main-image-smaller.png" styles="height:100%; width:100%" />
-             
 
 
+              <img class="ui centered image" src="../assets/images/LogoTopOut2.png" styles="height:100%; width:100%" /> -->
+
+            <!-- <div class="ui one column stackable center aligned page grid">  <a href="/#/signup" class="large basic inverted animated fade ui button">
+
+           <div class="visible content">Try it Now</div>
+              <div class="hidden content">Register Now</div>
+              </a>
+              </div> -->
+
+<!--
           </div>
         </div>
       </div>
     </div>
 
-  </div>
+  </div> -->
+
+
+  <!-- blue section of page ends  -->
+
   <div class="ui vertical feature raised blue segment features-session">
     <div class="ui centered page grid">
       <div class="fourteen wide column">
@@ -71,12 +78,12 @@
               <i class="flaticon-calendar icon"></i> TopOut Tracker
             </div>
             <p>Log your climbs and do our weekly challenges to rack points,win prizes and gain reputation.</p>
-            <p>
+            <!-- <p>
               <a class="ui green right labeled icon button" href="#/login">
                 Lets Go
                 <i class="right flaticon-move icon"></i>
               </a>
-            </p>
+            </p> -->
           </div>
           <div class="column column-feature" style="margin-top:15px">
             <div class="ui icon header">
@@ -109,6 +116,7 @@
     </div>
 
   </div>
+
 
   <div class="ui vertical raised blue segment recent-works" style="margin-top:25px;">
     <div class="ui very relaxed stackable centered page grid">
@@ -252,22 +260,27 @@
 
 <script>
  $(document).ready(function() {
- 
+
   $("#owl-demo").owlCarousel({
- 
+
       navigation : true, // Show next and prev buttons
+      navigationText: [
+        "<i class='icon-chevron-left icon-white'><</i>",
+        "<i class='icon-chevron-right icon-white'>></i>"
+      ],
       slideSpeed : 300,
+      pagination : false,
       paginationSpeed : 400,
       singleItem:true,
       autoWidth:true,
       margin:10
- 
+
+
+
+
   });
- 
+
 });
 </script>
 
 </body>
-
-  
-
