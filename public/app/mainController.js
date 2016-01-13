@@ -1,3 +1,6 @@
+var socket = io()
+
+
 angular.module('mainCtrl', [])
 .controller('MainController', MainController)
 
@@ -194,3 +197,13 @@ function MainController($state, authFactory, $rootScope){
 	}
 
 }
+
+socket.on('connect', function(){
+  console.log('connected!')
+})
+
+socket.on('tweets', function(tweet){
+  var $toastContent = ('<span>' + tweet.text + '</span>')
+  console.log('hitting')
+  Materialize.toast($toastContent, 5000)
+})
